@@ -1,18 +1,12 @@
 import Link from "next/link";
 
-
 function App() {
-  return (<div>
-    <p>
-      Teste paginação
-    </p>
-
-<p>
-<br></br>
-    <Link href='/login'>link para login </Link>
-</p>
-  </div>
+  return (
+    <div>
+      <p>Tela inicial</p>
+      <Link href="/login">Ir Para Login</Link>
+    </div>
   );
 }
 
-export default App; 
+export default App;

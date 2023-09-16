@@ -1,16 +1,12 @@
 import Link from "next/link";
 
-function Login (){
-    return (
-        <div>
-            <h1>
-                Login 
-            </h1>
-                <p>
-                <Link href = '/'>voltar para pag inicial</Link>
-                </p>
-        </div>
-    );
+function Login() {
+  return (
+    <div>
+      <p>Login</p>
+      <Link href="/">Voltar para Home</Link>
+    </div>
+  );
 }
 
-export default Login; 
+export default Login;
