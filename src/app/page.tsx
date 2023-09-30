@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <p>Tela inicial</p>
-      <Link href="/login">Ir Para Login</Link>
+      <Link href="/login">Ir Pahgvtbjhra Login</Link>
     </div>
   );
 }
