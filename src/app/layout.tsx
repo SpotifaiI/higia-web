@@ -1,7 +1,10 @@
-import './globals.css'
+import React from 'react';
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
-import {StyledComponentsRegistry} from "@/lib/registry";
+import { Poppins } from 'next/font/google'
+
+import { StyledComponentsRegistry } from "@/lib/registry";
+
+import './globals.css'
 
 const poppins = Poppins({
   subsets: ['latin'],
