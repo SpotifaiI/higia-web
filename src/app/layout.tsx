@@ -1,10 +1,14 @@
-import './globals.css'
+import React from 'react';
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const poppins = Poppins({ 
-  subsets: ['latin'], 
-  weight:['400', '500', '700', '200'], 
+import { StyledComponentsRegistry } from "@/lib/registry";
+
+import './globals.css'
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight:['400', '500', '700', '200'],
   variable: '--font-poppins'
 })
 
@@ -20,7 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <StyledComponentsRegistry>
+          {children}
+        </StyledComponentsRegistry>
+      </body>
     </html>
   )
 }
