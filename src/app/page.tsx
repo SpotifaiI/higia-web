@@ -1,14 +1,20 @@
 import Link from "next/link";
-import Head from "next/head";
+import {
+  Container,
+  Navigation,
+  Content
+} from "@/app/styles";
 
 function App() {
   return (
-    <>
-      <p>Tela inicial</p>
-      <Link href="/login">Ir Pahgvtbjhra Login</Link>
-      <input type="text" placeholder="show" />
-      <button type="button">Show</button>
-    </>
+    <Container>
+      <Content>
+        <span>Outro Show</span>
+      </Content>
+      <Navigation>
+        <span>Show</span>
+      </Navigation>
+    </Container>
   );
 }
 
