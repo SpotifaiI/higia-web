@@ -1,17 +1,14 @@
 import Link from "next/link";
-import styled from 'styled-components';
-
-const Container = styled.p`
-  width: 100%;
-  display: flex;
-`;
+import Head from "next/head";
 
 function App() {
   return (
-    <Container>
+    <>
       <p>Tela inicial</p>
       <Link href="/login">Ir Pahgvtbjhra Login</Link>
-    </Container>
+      <input type="text" placeholder="show" />
+      <button type="button">Show</button>
+    </>
   );
 }
 
