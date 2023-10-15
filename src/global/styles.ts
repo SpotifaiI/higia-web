@@ -2,8 +2,6 @@
 
 import { createGlobalStyle } from "styled-components";
 
-import { colors } from "@/global/theme";
-
 export const GlobalStyles = createGlobalStyle`
   :root {
     --color-main-1: #37FC6E;
