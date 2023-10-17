@@ -1,4 +1,5 @@
 import React from "react";
+import { Icon } from "react-feather";
 
 import {
   StatisticContainer,
@@ -11,14 +12,16 @@ import {
 export type StatsCardProps = {
   label: string;
   value: string|number;
-  Icon: React.ReactNode
+  Icon: Icon
 };
 
 export function StatsCard({
   label,
   value,
-  Icon
+  Icon: CardIcon
 }: StatsCardProps) {
+  const statisticIconSize = 80;
+
   return (
     <StatisticContainer>
       <StatisticDataContainer>
@@ -30,7 +33,7 @@ export function StatsCard({
         </StatisticData>
       </StatisticDataContainer>
       <StatisticIconContainer>
-        {Icon}
+        <CardIcon size={statisticIconSize} />
       </StatisticIconContainer>
     </StatisticContainer>
   );

@@ -6,7 +6,7 @@ import {
   Users,
   User,
   Settings
-} from 'react-feather';
+} from "react-feather";
 
 import {
   Container,
@@ -15,52 +15,29 @@ import {
   ImageContainer,
   ButtonsContainer,
   SpacingContainer,
-  NavigationButton,
   MainTitle,
   StatisticContainerList
 } from "@/app/styles";
-import {StatsCard} from "@/components/StatsCard";
+import { StatsCard } from "@/components/StatsCard";
+import { TabNavigationButton } from "@/components/TabNavigationButton";
 
 function App() {
-  const buttonSize = 32;
-  const statisticIconSize = 80;
-
   return (
     <Container>
       <Content>
         <MainTitle>Informações Gerais</MainTitle>
 
         <StatisticContainerList>
-          <StatsCard
-            label="Colaboradores"
-            value="57"
-            Icon={<Users size={statisticIconSize} />}
-          />
-          <StatsCard
-            label="Colaboradores"
-            value="57"
-            Icon={<Users size={statisticIconSize} />}
-          />
-          <StatsCard
-            label="Colaboradores"
-            value="57"
-            Icon={<Users size={statisticIconSize} />}
-          />
-          <StatsCard
-            label="Colaboradores"
-            value="57"
-            Icon={<Users size={statisticIconSize} />}
-          />
-          <StatsCard
-            label="Colaboradores"
-            value="57"
-            Icon={<Users size={statisticIconSize} />}
-          />
-          <StatsCard
-            label="Colaboradores"
-            value="57"
-            Icon={<Users size={statisticIconSize} />}
-          />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
+          <StatsCard label="Colaboradores" value="57" Icon={Users} />
         </StatisticContainerList>
       </Content>
       <Navigation>
@@ -73,24 +50,12 @@ function App() {
         </ImageContainer>
 
         <ButtonsContainer>
-          <NavigationButton href="/">
-            <Home size={buttonSize} />
-          </NavigationButton>
-          <NavigationButton href="/">
-            <Award size={buttonSize} />
-          </NavigationButton>
-          <NavigationButton href="/">
-            <MapPin size={buttonSize} />
-          </NavigationButton>
-          <NavigationButton href="/">
-            <Users size={buttonSize} />
-          </NavigationButton>
-          <NavigationButton href="/">
-            <User size={buttonSize} />
-          </NavigationButton>
-          <NavigationButton href="/">
-            <Settings size={buttonSize} />
-          </NavigationButton>
+          <TabNavigationButton href="/" Icon={Home} />
+          <TabNavigationButton href="/" Icon={Award} />
+          <TabNavigationButton href="/" Icon={MapPin} />
+          <TabNavigationButton href="/" Icon={Users} />
+          <TabNavigationButton href="/" Icon={User} />
+          <TabNavigationButton href="/" Icon={Settings} />
         </ButtonsContainer>
 
         <SpacingContainer>
