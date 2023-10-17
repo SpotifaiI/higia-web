@@ -17,12 +17,9 @@ import {
   SpacingContainer,
   NavigationButton,
   MainTitle,
-  StatisticContainerList,
-  StatisticContainer,
-  StatisticTitle,
-  StatisticData,
-  StatisticIconContainer, StatisticDataContainer
+  StatisticContainerList
 } from "@/app/styles";
+import {StatsCard} from "@/components/StatsCard";
 
 function App() {
   const buttonSize = 32;
@@ -34,75 +31,36 @@ function App() {
         <MainTitle>Informações Gerais</MainTitle>
 
         <StatisticContainerList>
-          <StatisticContainer>
-            <StatisticDataContainer>
-              <StatisticTitle>
-                Colaboradores
-              </StatisticTitle>
-              <StatisticData>
-                57
-              </StatisticData>
-            </StatisticDataContainer>
-            <StatisticIconContainer>
-              <Users size={statisticIconSize} />
-            </StatisticIconContainer>
-          </StatisticContainer>
-
-          <StatisticContainer>
-            <StatisticDataContainer>
-              <StatisticTitle>
-                Colaboradores
-              </StatisticTitle>
-              <StatisticData>
-                57
-              </StatisticData>
-            </StatisticDataContainer>
-            <StatisticIconContainer>
-              <Users size={statisticIconSize} />
-            </StatisticIconContainer>
-          </StatisticContainer>
-
-          <StatisticContainer>
-            <StatisticDataContainer>
-              <StatisticTitle>
-                Colaboradores
-              </StatisticTitle>
-              <StatisticData>
-                57
-              </StatisticData>
-            </StatisticDataContainer>
-            <StatisticIconContainer>
-              <Users size={statisticIconSize} />
-            </StatisticIconContainer>
-          </StatisticContainer>
-
-          <StatisticContainer>
-            <StatisticDataContainer>
-              <StatisticTitle>
-                Colaboradores
-              </StatisticTitle>
-              <StatisticData>
-                57
-              </StatisticData>
-            </StatisticDataContainer>
-            <StatisticIconContainer>
-              <Users size={statisticIconSize} />
-            </StatisticIconContainer>
-          </StatisticContainer>
-
-          <StatisticContainer>
-            <StatisticDataContainer>
-              <StatisticTitle>
-                Colaboradores
-              </StatisticTitle>
-              <StatisticData>
-                57
-              </StatisticData>
-            </StatisticDataContainer>
-            <StatisticIconContainer>
-              <Users size={statisticIconSize} />
-            </StatisticIconContainer>
-          </StatisticContainer>
+          <StatsCard
+            label="Colaboradores"
+            value="57"
+            Icon={<Users size={statisticIconSize} />}
+          />
+          <StatsCard
+            label="Colaboradores"
+            value="57"
+            Icon={<Users size={statisticIconSize} />}
+          />
+          <StatsCard
+            label="Colaboradores"
+            value="57"
+            Icon={<Users size={statisticIconSize} />}
+          />
+          <StatsCard
+            label="Colaboradores"
+            value="57"
+            Icon={<Users size={statisticIconSize} />}
+          />
+          <StatsCard
+            label="Colaboradores"
+            value="57"
+            Icon={<Users size={statisticIconSize} />}
+          />
+          <StatsCard
+            label="Colaboradores"
+            value="57"
+            Icon={<Users size={statisticIconSize} />}
+          />
         </StatisticContainerList>
       </Content>
       <Navigation>
