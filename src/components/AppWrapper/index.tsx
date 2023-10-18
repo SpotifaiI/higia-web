@@ -4,7 +4,9 @@ import { NavigationBar } from "@/components/NavigationBar";
 import {
   Container,
   Content,
+  GradientSpan,
   MainTitle,
+  MainTitleContainer
 } from "./styles";
 
 export type AppWrapperProps = {
@@ -15,7 +17,10 @@ export function AppWrapper({ title, children }: AppWrapperProps) {
   return (
     <Container>
       <Content>
-        <MainTitle>{title}</MainTitle>
+        <MainTitleContainer>
+          <GradientSpan />
+          <MainTitle>{title}</MainTitle>
+        </MainTitleContainer>
 
         {children}
       </Content>

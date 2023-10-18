@@ -6,10 +6,9 @@ export const StatisticContainer = styled.span`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--color-main-1);
   padding: 1.6rem;
   border-radius: .8rem;
-  border-bottom: .4rem solid var(--color-main-2);
+  background: linear-gradient(to right, var(--color-main-1) 0%, var(--color-main-2) 100%);
 `;
 
 export const StatisticTitle = styled.span`

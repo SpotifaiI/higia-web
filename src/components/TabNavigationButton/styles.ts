@@ -14,7 +14,7 @@ export const NavigationButton = styled(Link)`
   border-radius: 50%;
 
   &:hover {
-    color: var(--color-main-1);
-    border-bottom: .32rem solid var(--color-main-2);
+    color: var(--color-white);
+    background: linear-gradient(to right, var(--color-main-1) 0%, var(--color-main-2) 100%);
   }
 `;

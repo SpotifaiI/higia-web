@@ -25,7 +25,17 @@ export const Content = styled.main`
 export const MainTitle = styled.h1`
   font-size: 2rem;
   line-height: 3rem;
-  color: var(--color-main-1);
-  padding-left: .8rem;
-  border-left: .2rem solid var(--color-main-2);
+  margin-left: 1.6rem;
+  color: var(--color-darker);
+`;
+
+export const GradientSpan = styled.span`
+  height: 100%;
+  width: .4rem;
+  position: absolute;
+  background: linear-gradient(to bottom, var(--color-main-1) 0%, var(--color-main-2) 100%);
+`;
+
+export const MainTitleContainer = styled.div`
+  position: relative;
 `;
