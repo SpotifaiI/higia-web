@@ -23,7 +23,7 @@ export const Navigation = styled.nav`
   right: 0;
   border-radius: .8rem;
   display: flex;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
   align-items: center;
   justify-content: center;
   margin: 0 .8rem .8rem .8rem;
@@ -49,7 +49,7 @@ export const Content = styled.main`
   height: 100%;
 
   @media (min-width: ${sizes.laptop}) {
-    padding: 0rem 1.6rem .8rem 8.8rem;
+    padding: 0 1.6rem .8rem 8.8rem;
   }
 `;
 
