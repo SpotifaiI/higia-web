@@ -31,11 +31,11 @@ export function NavigationBar({}: NavigationBarProps) {
 
       <ButtonsContainer>
         <TabNavigationButton href="/" Icon={Home} />
-        <TabNavigationButton href="/" Icon={Award} />
-        <TabNavigationButton href="/" Icon={MapPin} />
-        <TabNavigationButton href="/" Icon={Users} />
-        <TabNavigationButton href="/" Icon={User} />
-        <TabNavigationButton href="/" Icon={Settings} />
+        <TabNavigationButton href="/tasks" Icon={Award} />
+        <TabNavigationButton href="/map" Icon={MapPin} />
+        <TabNavigationButton href="/colaborators" Icon={Users} />
+        <TabNavigationButton href="/profile" Icon={User} />
+        <TabNavigationButton href="/settings" Icon={Settings} />
       </ButtonsContainer>
 
       <SpacingContainer>

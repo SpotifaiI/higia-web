@@ -1,6 +1,4 @@
-import {
-  Users,
-} from "react-feather";
+import { Users } from "react-feather";
 
 import {
   StatisticContainerList,
