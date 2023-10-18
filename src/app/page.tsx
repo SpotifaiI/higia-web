@@ -16,7 +16,8 @@ import {
   ButtonsContainer,
   SpacingContainer,
   MainTitle,
-  StatisticContainerList
+  StatisticContainerList,
+  LogoImage
 } from "@/app/styles";
 import { StatsCard } from "@/components/StatsCard";
 import { TabNavigationButton } from "@/components/TabNavigationButton";
@@ -42,7 +43,7 @@ function App() {
       </Content>
       <Navigation>
         <ImageContainer>
-          <Image
+          <LogoImage
             src="/assets/images/higia-accent.png"
             alt="Logo"
             fill={true}

@@ -1,30 +1,32 @@
 'use client';
 
 import styled from "styled-components";
+import Image from "next/image";
 
 import { sizes } from "@/global/sizes";
 
 export const Container = styled.div`
-  height: calc(100vh - 2rem);
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
-  gap: 1rem;
   background-color: var(--color-lighter);
-
-  @media (min-width: ${sizes.laptop}) {
-    flex-direction: row-reverse;
-  }
 `;
 
 export const Navigation = styled.nav`
   background-color: var(--color-white);
   height: 6.4rem;
+  width: calc(100% - 1.6rem);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   border-radius: .8rem;
   display: flex;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   align-items: center;
   justify-content: center;
-  padding: 0 1.6rem;
+  margin: 0 .8rem .8rem .8rem;
 
   @media (min-width: ${sizes.tablet}) {
     justify-content: space-between;
@@ -32,16 +34,23 @@ export const Navigation = styled.nav`
 
   @media (min-width: ${sizes.laptop}) {
     flex-direction: column;
-    height: calc(100% - 3.2rem);
-    padding: 1.6rem .8rem;
+    height: calc(100% - 1.6rem);
+    margin: .8rem 0 .8rem .8rem;
+    width: 6.4rem;
+    right: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
   }
 `;
 
 export const Content = styled.main`
-  background-color: var(--color-white);
-  flex: 1;
-  border-radius: .8rem;
-  padding: 0 1.6rem;
+  padding: .4rem 1.6rem 8.8rem 1.6rem;
+  height: 100%;
+
+  @media (min-width: ${sizes.laptop}) {
+    padding: 0rem 1.6rem .8rem 8.8rem;
+  }
 `;
 
 export const SpacingContainer = styled.span`
@@ -64,6 +73,7 @@ export const ImageContainer = styled(SpacingContainer)`
     display: flex;
     align-items: center;
     justify-items: center;
+    margin-left: 0;
   }
 `;
 
@@ -93,15 +103,20 @@ export const MainTitle = styled.h1`
 `;
 
 export const StatisticContainerList = styled.div`
-  height: 70vh;
-  overflow: scroll;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   gap: .8rem;
   border-radius: .8rem;
   scrollbar-width: thin;
+`;
+
+export const LogoImage = styled(Image)`
+  margin-left: .8rem;
+  margin-top: 0;
 
   @media (min-width: ${sizes.laptop}) {
-    height: 84vh;
+    margin-left: 0;
+    margin-top: .8rem;
   }
 `;
