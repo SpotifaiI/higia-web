@@ -2,20 +2,28 @@ import React from "react";
 import { Icon } from "react-feather";
 
 import { NavigationButton } from "./styles";
+import { LinkProps } from "next/link";
+
+export type NavigationButtonProps = {
+  isSelected: boolean;
+} & LinkProps;
 
 export type TabNavigationButtonProps = {
-  href: string;
   Icon: Icon;
-};
+} & NavigationButtonProps & LinkProps;
 
 export function TabNavigationButton({
   Icon: ButtonIcon,
-  href
+  isSelected,
+  ...rest
 }: TabNavigationButtonProps) {
   const buttonSize = 32;
 
   return (
-    <NavigationButton href={href}>
+    <NavigationButton
+      isSelected={isSelected}
+      {...rest}
+    >
       <ButtonIcon size={buttonSize} />
     </NavigationButton>
   );

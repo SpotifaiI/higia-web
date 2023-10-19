@@ -1,13 +1,9 @@
-import {
-  Award,
-  Home,
-  MapPin,
-  Settings,
-  User,
-  Users
-} from "react-feather";
+'use client';
+
+import { useState } from "react";
 
 import { TabNavigationButton } from "@/components/TabNavigationButton";
+import { routes } from "@/lib/routes";
 import {
   ButtonsContainer,
   ImageContainer,
@@ -19,6 +15,8 @@ import {
 export type NavigationBarProps = {};
 
 export function NavigationBar({}: NavigationBarProps) {
+  const [selectedMenuItem, setSelectedMenuItem] = useState(0);
+
   return (
     <Navigation>
       <ImageContainer>
@@ -30,12 +28,15 @@ export function NavigationBar({}: NavigationBarProps) {
       </ImageContainer>
 
       <ButtonsContainer>
-        <TabNavigationButton href="/" Icon={Home} />
-        <TabNavigationButton href="/tasks" Icon={Award} />
-        <TabNavigationButton href="/map" Icon={MapPin} />
-        <TabNavigationButton href="/colaborators" Icon={Users} />
-        <TabNavigationButton href="/profile" Icon={User} />
-        <TabNavigationButton href="/settings" Icon={Settings} />
+        {routes.map(({ path, Icon }, index) => (
+          <TabNavigationButton
+            href={path}
+            Icon={Icon}
+            key={index}
+            isSelected={selectedMenuItem === index}
+            onClick={() => setSelectedMenuItem(index)}
+          />
+        ))}
       </ButtonsContainer>
 
       <SpacingContainer>

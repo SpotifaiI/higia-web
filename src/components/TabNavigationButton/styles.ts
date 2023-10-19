@@ -3,8 +3,14 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-export const NavigationButton = styled(Link)`
-  color: var(--color-dark);
+import { NavigationButtonProps } from './index';
+
+const activeButtonStyles = `
+  color: var(--color-white);
+  background: linear-gradient(to right, var(--color-main-1) 0%, var(--color-main-2) 100%);
+`;
+
+export const NavigationButton = styled(Link)<NavigationButtonProps>`
   width: 100%;
   height: 100%;
   display: flex;
@@ -12,9 +18,13 @@ export const NavigationButton = styled(Link)`
   justify-content: center;
   transition: .3s;
   border-radius: 50%;
+  ${
+    (props) => props.isSelected
+    ? activeButtonStyles
+    : `color: var(--color-dark);`
+  }
 
   &:hover {
-    color: var(--color-white);
-    background: linear-gradient(to right, var(--color-main-1) 0%, var(--color-main-2) 100%);
+    ${activeButtonStyles}
   }
 `;
