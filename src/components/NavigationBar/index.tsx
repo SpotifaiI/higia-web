@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 import { TabNavigationButton } from "@/components/TabNavigationButton";
 import { routes } from "@/lib/routes";
@@ -12,10 +12,8 @@ import {
   SpacingContainer
 } from "./styles";
 
-export type NavigationBarProps = {};
-
-export function NavigationBar({}: NavigationBarProps) {
-  const [selectedMenuItem, setSelectedMenuItem] = useState(0);
+export function NavigationBar() {
+  const pathname = usePathname();
 
   return (
     <Navigation>
@@ -33,8 +31,7 @@ export function NavigationBar({}: NavigationBarProps) {
             href={path}
             Icon={Icon}
             key={index}
-            isSelected={selectedMenuItem === index}
-            onClick={() => setSelectedMenuItem(index)}
+            isSelected={path === pathname}
           />
         ))}
       </ButtonsContainer>

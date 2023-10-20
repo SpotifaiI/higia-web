@@ -9,6 +9,9 @@ const activeButtonStyles = `
   color: var(--color-white);
   background: linear-gradient(to right, var(--color-main-1) 0%, var(--color-main-2) 100%);
 `;
+const standardButtonStyles = `
+  color: var(--color-dark);
+`;
 
 export const NavigationButton = styled(Link)<NavigationButtonProps>`
   width: 100%;
@@ -19,9 +22,9 @@ export const NavigationButton = styled(Link)<NavigationButtonProps>`
   transition: .3s;
   border-radius: 50%;
   ${
-    (props) => props.isSelected
+    ({ isSelected }) => isSelected
     ? activeButtonStyles
-    : `color: var(--color-dark);`
+    : standardButtonStyles
   }
 
   &:hover {

@@ -12,7 +12,7 @@ import { Route } from "@/models/Route";
 export const routes = [
   new Route('/', Home),
   new Route('/tasks', Award),
-  new Route('/map', MapPin),
+  new Route('/tasks-map', MapPin),
   new Route('/colaborators', Users),
   new Route('/profile', User),
   new Route('/settings', Settings)

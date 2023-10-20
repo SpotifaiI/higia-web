@@ -1,7 +1,7 @@
 import { AppWrapper } from "@/components/AppWrapper";
 import {} from "./styles";
 
-function Map() {
+function TasksMap() {
   return (
     <AppWrapper title="Mapa de Tarefas">
       <p>Aqui está o mapa de tarefas</p>
@@ -9,4 +9,4 @@ function Map() {
   );
 }
 
-export default Map;
+export default TasksMap;
