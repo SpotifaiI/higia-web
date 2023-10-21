@@ -12,13 +12,13 @@ export const StatisticContainer = styled.span`
 `;
 
 export const StatisticTitle = styled.span`
-  font-size: 1.2rem;
+  font-size: 1rem;
   height: 1.6rem;
   color: var(--color-white);
 `;
 
 export const StatisticData = styled.span`
-  font-size: 4rem;
+  font-size: 3.5rem;
   height: 4.8rem;
   color: var(--color-white);
 `;
