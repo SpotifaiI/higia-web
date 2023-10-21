@@ -20,7 +20,7 @@ export function StatsCard({
   value,
   Icon: CardIcon
 }: StatsCardProps) {
-  const statisticIconSize = 80;
+  const statisticIconSize = 56;
 
   return (
     <StatisticContainer>
