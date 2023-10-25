@@ -1,13 +1,13 @@
-import { Calendar } from "react-feather";
+import { Search } from "react-feather";
 
 import { AppWrapper } from "@/components/AppWrapper";
 import {
- SearchContainer,
- SearchFieldContainer,
- SearchFieldLabel,
- SearchFieldGroup,
- SearchField,
- SearchFieldIcon
+  SearchContainer,
+  SearchFieldContainer,
+  SearchFieldLabel,
+  SearchFieldGroup,
+  SearchField,
+  SearchFieldIcon, ActionButton
 } from "./styles";
 
 function Tasks() {
@@ -33,7 +33,61 @@ function Tasks() {
             <SearchFieldIcon size={32} />
           </SearchFieldGroup>
         </SearchFieldContainer>
-        
+
+        <SearchFieldContainer>
+          <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
+          <SearchFieldGroup>
+            <SearchField id="Btn-two"/>
+            <SearchFieldIcon size={32} />
+          </SearchFieldGroup>
+        </SearchFieldContainer>
+
+        <SearchFieldContainer>
+          <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
+          <SearchFieldGroup>
+            <SearchField id="Btn-two"/>
+            <SearchFieldIcon size={32} />
+          </SearchFieldGroup>
+        </SearchFieldContainer>
+
+        <SearchFieldContainer>
+          <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
+          <SearchFieldGroup>
+            <SearchField id="Btn-two"/>
+            <SearchFieldIcon size={32} />
+          </SearchFieldGroup>
+        </SearchFieldContainer>
+
+        <SearchFieldContainer>
+          <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
+          <SearchFieldGroup>
+            <SearchField id="Btn-two"/>
+            <SearchFieldIcon size={32} />
+          </SearchFieldGroup>
+        </SearchFieldContainer>
+
+        <SearchFieldContainer>
+          <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
+          <SearchFieldGroup>
+            <SearchField id="Btn-two"/>
+            <SearchFieldIcon size={32} />
+          </SearchFieldGroup>
+        </SearchFieldContainer>
+
+        <SearchFieldContainer>
+          <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
+          <SearchFieldGroup>
+            <SearchField id="Btn-two"/>
+            <SearchFieldIcon size={32} />
+          </SearchFieldGroup>
+        </SearchFieldContainer>
+        <SearchFieldContainer>
+          <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
+          <SearchFieldGroup>
+            <SearchField id="Btn-two"/>
+            <SearchFieldIcon size={32} />
+          </SearchFieldGroup>
+        </SearchFieldContainer>
         <SearchFieldContainer>
           <SearchFieldLabel htmlFor="#Btn-two">Data Fim</SearchFieldLabel>
           <SearchFieldGroup>
@@ -44,16 +98,13 @@ function Tasks() {
 
 
 
+        <ActionButton>
+          Buscar
+        </ActionButton>
 
-
-
-        
-
-
-
-           <div className="Search">
-          <button id="Btn-three">Buscar</button>
-        </div>
+        <ActionButton>
+          <Search /> Buscar
+        </ActionButton>
       </SearchContainer>
     </AppWrapper>
   );
