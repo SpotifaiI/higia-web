@@ -20,6 +20,10 @@ export const GlobalStyles = createGlobalStyle`
     --color-gradient-disabled: linear-gradient(to right, #787D82, #E6F3F6);
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     padding: 0;
