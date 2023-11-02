@@ -8,7 +8,7 @@ export const StatisticContainer = styled.span`
   justify-content: space-between;
   padding: 1.6rem;
   border-radius: .8rem;
-  background: linear-gradient(to right, var(--color-main-1) 0%, var(--color-main-2) 100%);
+  background: linear-gradient(to right bottom, var(--color-main-1) 0%, var(--color-main-2) 100%);
 `;
 
 export const StatisticTitle = styled.span`

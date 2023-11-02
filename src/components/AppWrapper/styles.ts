@@ -33,7 +33,7 @@ export const GradientSpan = styled.span`
   height: 100%;
   width: .4rem;
   position: absolute;
-  background: linear-gradient(to bottom, var(--color-main-1) 0%, var(--color-main-2) 100%);
+  background: linear-gradient(to right bottom, var(--color-main-1) 0%, var(--color-main-2) 100%);
 `;
 
 export const MainTitleContainer = styled.div`
