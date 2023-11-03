@@ -14,9 +14,8 @@ export const StatisticContainerList = styled.div`
   scrollbar-width: thin;
 
   @media (min-width: ${sizes.laptop}){
-  grid-template-columns: repeat(2, 1fr);
-}
-
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const StatisticContainerListMin = styled.div`

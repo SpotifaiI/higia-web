@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { sizes } from '@/global/sizes';
 import { css } from '@/global/styles';
 
 export const Container = styled.div`
@@ -10,10 +11,18 @@ export const Container = styled.div`
   background-color: var(--color-lighter);
   display: flex;
   flex-direction: column;
+
+  @media (min-width: ${sizes.tablet}) {
+    flex-direction: row;
+  }
 `;
 
 export const LoginContainer = styled.main`
   min-height: 100vh;
+
+  @media (min-width: ${sizes.tablet}) {
+    width: 40%;
+  }
 `;
 
 export const LoginContainerWrapper = styled.div`
@@ -26,10 +35,15 @@ export const LoginContainerWrapper = styled.div`
 export const BrandContainer = styled.aside`
   min-height: 100vh;
   background: ${css.linearGradient};
-  display: flex;
+  display: none;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: ${sizes.tablet}) {
+    display: flex;
+  }
 `;
 
 export const BrandLogoContainer = styled.div`
