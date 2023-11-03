@@ -38,6 +38,7 @@ export const BrandContainer = styled.aside`
   display: none;
   width: 100%;
   flex-direction: column;
+  gap: .8rem;
   align-items: center;
   justify-content: center;
 
@@ -48,7 +49,7 @@ export const BrandContainer = styled.aside`
 
 export const BrandLogoContainer = styled.div`
   position: relative;
-  height: 10rem;
+  height: 20rem;
   width: 50%;
 `;
 
@@ -56,6 +57,17 @@ export const BrandLogoImage = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: contain;
+`;
+
+export const BrandName = styled.p`
+  font-size: 4rem;
+  text-transform: capitalize;
+  font-weight: 200;
+  color: var(--color-white);
+
+  @media (min-width: ${sizes.laptop}) {
+    font-size: 5rem;
+  }
 `;
 
 export const LoginHeader = styled.header`
@@ -69,6 +81,10 @@ export const LoginIconContainer = styled.div`
   position: relative;
   height: 4.8rem;
   width: 4.8rem;
+
+  @media (min-width: ${sizes.tablet}) {
+    display: none;
+  }
 `;
 
 export const LoginIcon = styled(Image)`

@@ -7,6 +7,7 @@ import {
   BrandContainer,
   BrandLogoContainer,
   BrandLogoImage,
+  BrandName,
   Container,
   LoginContainer,
   LoginContainerWrapper,
@@ -71,6 +72,9 @@ function Login() {
             alt="Logo Higia"
             fill={true} />
         </BrandLogoContainer>
+        <BrandName>
+          HIGIA
+        </BrandName>
       </BrandContainer>
     </Container>
   );
