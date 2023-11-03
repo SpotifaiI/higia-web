@@ -1,13 +1,14 @@
 'use client';
 
-import styled from "styled-components";
 import Link from "next/link";
+import styled from "styled-components";
 
+import { css } from "@/global/styles";
 import { NavigationButtonProps } from './index';
 
 const activeButtonStyles = `
   color: var(--color-white);
-  background: linear-gradient(to right, var(--color-main-1) 0%, var(--color-main-2) 100%);
+  background: ${css.linearGradient};
 `;
 const standardButtonStyles = `
   color: var(--color-dark);

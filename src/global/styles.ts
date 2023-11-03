@@ -1,6 +1,8 @@
 'use client';
 
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+
+import { colors } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -21,12 +23,12 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
 
   body {
-    margin: 0;
-    padding: 0;
     min-height: 100vh;
     font-size: 16px;
   }
@@ -39,3 +41,25 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 `;
+
+export const css = {
+  linearGradient:
+    `linear-gradient(to right bottom, ${colors.main1}, ${colors.main2})`
+};
+
+export const components = {
+  ActionButton: styled.button`
+    border: 0;
+    border-radius: .8rem;
+    height: 4rem;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    font-weight: 700;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .8;
+    }
+  `
+};
