@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes } from "react";
 import { Icon } from "react-feather";
 
 import { MainButton } from "./styles";
@@ -5,7 +6,7 @@ import { MainButton } from "./styles";
 export type ActionButtonProps = {
   label: string;
   Icon?: Icon;
-} & HTMLButtonElement;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function ActionButton({
   label,

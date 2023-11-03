@@ -87,6 +87,12 @@ export const GradientActionButton = styled.button`
   font-size: 1rem;
   line-height: 1.6rem;
   font-weight: 700;
+  transition: .3s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .8;
+  }
 `;
 
 export const SeparatorContainer = styled.div`
@@ -122,6 +128,12 @@ export const IconActionButton = styled.button`
   line-height: 1.6rem;
   font-weight: 700;
   gap: .8rem;
+  transition: .3s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .8;
+  }
 `;
 
 export const IconActionButtonImageContainer = styled.div`
