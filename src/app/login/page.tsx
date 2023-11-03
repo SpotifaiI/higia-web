@@ -1,12 +1,10 @@
+import { FormFieldInput } from "@/components/FormFieldInput";
 import Head from "next/head";
 import {
   BrandContainer,
   BrandLogoContainer,
   BrandLogoImage,
   Container,
-  FormField,
-  FormFieldContainer,
-  FormFieldLabel,
   GradientActionButton,
   IconActionButton,
   IconActionButtonImage,
@@ -46,15 +44,8 @@ function Login() {
           </LoginHeader>
 
           <LoginForm>
-            <FormFieldContainer>
-              <FormFieldLabel>Label</FormFieldLabel>
-              <FormField />
-            </FormFieldContainer>
-
-            <FormFieldContainer>
-              <FormFieldLabel>Label</FormFieldLabel>
-              <FormField />
-            </FormFieldContainer>
+            <FormFieldInput label="E-mail" />
+            <FormFieldInput label="Senha" />
 
             <GradientActionButton type="button">
               Entrar
