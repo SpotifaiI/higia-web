@@ -2,14 +2,12 @@ import Head from "next/head";
 
 import { FormFieldInput } from "@/components/FormFieldInput";
 import { GradientActionButton } from "@/components/GradientActionButton";
+import { SocialActionButton } from "@/components/SocialActionButton";
 import {
   BrandContainer,
   BrandLogoContainer,
   BrandLogoImage,
   Container,
-  IconActionButton,
-  IconActionButtonImage,
-  IconActionButtonImageContainer,
   LoginContainer,
   LoginContainerWrapper,
   LoginFooter,
@@ -60,27 +58,8 @@ function Login() {
           </SeparatorContainer>
 
           <LoginFooter>
-            <IconActionButton type="button">
-              <IconActionButtonImageContainer>
-                <IconActionButtonImage
-                  src="/assets/images/google.png"
-                  alt="Google Logo"
-                  fill={true} />
-              </IconActionButtonImageContainer>
-
-              Entrar com Google
-            </IconActionButton>
-
-            <IconActionButton type="button">
-              <IconActionButtonImageContainer>
-                <IconActionButtonImage
-                  src="/assets/images/google.png"
-                  alt="Google Logo"
-                  fill={true} />
-              </IconActionButtonImageContainer>
-
-              Entrar com Google
-            </IconActionButton>
+            <SocialActionButton socialType="google" />
+            <SocialActionButton socialType="facebook" />
           </LoginFooter>
         </LoginContainerWrapper>
       </LoginContainer>

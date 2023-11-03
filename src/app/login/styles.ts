@@ -48,13 +48,13 @@ export const LoginHeader = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1.6rem 0;
 `;
 
 export const LoginIconContainer = styled.div`
   position: relative;
   height: 4.8rem;
   width: 4.8rem;
-  margin-top: .8rem;
 `;
 
 export const LoginIcon = styled(Image)`
@@ -96,39 +96,6 @@ export const SeparatorText = styled.p`
   font-size: 1.2rem;
   line-height: 1.6rem;
   font-weight: 700;
-`;
-
-export const IconActionButton = styled.button`
-  background-color: var(--color-white);
-  border: 0;
-  border-radius: .8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 4rem;
-  color: var(--color-darker);
-  font-size: 1rem;
-  line-height: 1.6rem;
-  font-weight: 700;
-  gap: .8rem;
-  transition: .3s;
-  cursor: pointer;
-
-  &:hover {
-    opacity: .8;
-  }
-`;
-
-export const IconActionButtonImageContainer = styled.div`
-  position: relative;
-  height: 2rem;
-  width: 2rem;
-`;
-
-export const IconActionButtonImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
 
 export const LoginFooter = styled.footer`

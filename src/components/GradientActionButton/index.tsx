@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 
+import { GradientButton } from './styles';
+
 export type GradientActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function GradientActionButton({
@@ -7,8 +9,8 @@ export function GradientActionButton({
   ...rest
 }: GradientActionButtonProps) {
   return (
-    <GradientActionButton {...rest}>
+    <GradientButton {...rest}>
       {children}
-    </GradientActionButton>
+    </GradientButton>
   );
 }
