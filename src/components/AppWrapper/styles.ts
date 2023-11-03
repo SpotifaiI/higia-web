@@ -3,6 +3,7 @@
 import styled from "styled-components";
 
 import { sizes } from "@/global/sizes";
+import { css } from "@/global/styles";
 
 export const Container = styled.div`
   width: 100%;
@@ -33,7 +34,7 @@ export const GradientSpan = styled.span`
   height: 100%;
   width: .4rem;
   position: absolute;
-  background: linear-gradient(to right bottom, var(--color-main-1) 0%, var(--color-main-2) 100%);
+  background: ${css.linearGradient};
 `;
 
 export const MainTitleContainer = styled.div`

@@ -2,6 +2,8 @@
 
 import styled from "styled-components";
 
+import { css } from "@/global/styles";
+
 export const MainButton = styled.button`
   border: 0;
   border-radius: .8rem;
@@ -10,7 +12,7 @@ export const MainButton = styled.button`
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-lighter);
-  background: linear-gradient(to right bottom, #37FC6E, #5A81FA);
+  background: ${css.linearGradient};
   transition: .3s all;
   display: flex;
   align-items: center;

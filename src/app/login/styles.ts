@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { css } from '@/global/styles';
+
 export const Container = styled.div`
   min-height: 100vh;
   background-color: var(--color-lighter);
@@ -23,7 +25,7 @@ export const LoginContainerWrapper = styled.div`
 
 export const BrandContainer = styled.aside`
   min-height: 100vh;
-  background: linear-gradient(to right bottom, #37FC6E, #5A81FA);
+  background: ${css.linearGradient};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,6 +54,7 @@ export const LoginIconContainer = styled.div`
   position: relative;
   height: 4.8rem;
   width: 4.8rem;
+  margin-top: .8rem;
 `;
 
 export const LoginIcon = styled(Image)`
@@ -68,26 +71,85 @@ export const LoginTitle = styled.p`
   text-align: center;
 `;
 
-export const LoginForm = styled.form``;
+export const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 1.6rem 0;
+`;
 
-export const FormFieldContainer = styled.div``;
+export const FormFieldContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+`;
 
-export const FormFieldLabel = styled.label``;
+export const FormFieldLabel = styled.label`
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 700;
+  color: var(--color-dark);
+`;
 
-export const FormField = styled.input``;
+export const FormField = styled.input`
+  height: 4rem;
+  border: 0;
+  border-radius: .8rem;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  padding: 0 1.6rem;
+`;
 
-export const GradientActionButton = styled.button``;
+export const GradientActionButton = styled.button`
+  background: ${css.linearGradient};
+  border: 0;
+  border-radius: .8rem;
+  height: 4rem;
+  color: var(--color-lighter);
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 700;
+`;
 
-export const SeparatorContainer = styled.div``;
+export const SeparatorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.6rem 0;
+`;
 
-export const Separator = styled.span``;
+export const Separator = styled.span`
+  width: 40%;
+  height: .1rem;
+  background-color: var(--color-dark);
+`;
 
-export const SeparatorText = styled.p``;
+export const SeparatorText = styled.p`
+  color: var(--color-dark);
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-weight: 700;
+`;
 
-export const IconActionButton = styled.button``;
+export const IconActionButton = styled.button`
+  background-color: var(--color-white);
+  border: 0;
+  border-radius: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  color: var(--color-darker);
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 700;
+  gap: .8rem;
+`;
 
 export const IconActionButtonImageContainer = styled.div`
   position: relative;
+  height: 2rem;
+  width: 2rem;
 `;
 
 export const IconActionButtonImage = styled(Image)`
@@ -96,4 +158,9 @@ export const IconActionButtonImage = styled(Image)`
   object-fit: cover;
 `;
 
-export const LoginFooter = styled.footer``;
+export const LoginFooter = styled.footer`
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  margin: 1.6rem 0;
+`;

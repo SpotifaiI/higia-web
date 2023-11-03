@@ -1,8 +1,10 @@
+import Head from "next/head";
 import {
   BrandContainer,
   BrandLogoContainer,
   BrandLogoImage,
   Container,
+  FormField,
   FormFieldContainer,
   FormFieldLabel,
   GradientActionButton,
@@ -25,6 +27,10 @@ import {
 function Login() {
   return (
     <Container>
+      <Head>
+        <title>Higia | Login</title>
+      </Head>
+
       <LoginContainer>
         <LoginContainerWrapper>
           <LoginHeader>
@@ -42,15 +48,17 @@ function Login() {
           <LoginForm>
             <FormFieldContainer>
               <FormFieldLabel>Label</FormFieldLabel>
-              <FormFieldLabel />
+              <FormField />
             </FormFieldContainer>
 
             <FormFieldContainer>
               <FormFieldLabel>Label</FormFieldLabel>
-              <FormFieldLabel />
+              <FormField />
             </FormFieldContainer>
 
-            <GradientActionButton type="button" />
+            <GradientActionButton type="button">
+              Entrar
+            </GradientActionButton>
           </LoginForm>
 
           <SeparatorContainer>
@@ -66,9 +74,9 @@ function Login() {
                   src="/assets/images/google.png"
                   alt="Google Logo"
                   fill={true} />
-
-                Entrar com Google
               </IconActionButtonImageContainer>
+
+              Entrar com Google
             </IconActionButton>
 
             <IconActionButton type="button">
@@ -77,9 +85,9 @@ function Login() {
                   src="/assets/images/google.png"
                   alt="Google Logo"
                   fill={true} />
-
-                Entrar com Google
               </IconActionButtonImageContainer>
+
+              Entrar com Google
             </IconActionButton>
           </LoginFooter>
         </LoginContainerWrapper>
