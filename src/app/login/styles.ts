@@ -78,23 +78,6 @@ export const LoginForm = styled.form`
   margin: 1.6rem 0;
 `;
 
-export const GradientActionButton = styled.button`
-  background: ${css.linearGradient};
-  border: 0;
-  border-radius: .8rem;
-  height: 4rem;
-  color: var(--color-lighter);
-  font-size: 1rem;
-  line-height: 1.6rem;
-  font-weight: 700;
-  transition: .3s;
-  cursor: pointer;
-
-  &:hover {
-    opacity: .8;
-  }
-`;
-
 export const SeparatorContainer = styled.div`
   display: flex;
   align-items: center;

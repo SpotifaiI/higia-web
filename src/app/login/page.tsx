@@ -1,11 +1,12 @@
-import { FormFieldInput } from "@/components/FormFieldInput";
 import Head from "next/head";
+
+import { FormFieldInput } from "@/components/FormFieldInput";
+import { GradientActionButton } from "@/components/GradientActionButton";
 import {
   BrandContainer,
   BrandLogoContainer,
   BrandLogoImage,
   Container,
-  GradientActionButton,
   IconActionButton,
   IconActionButtonImage,
   IconActionButtonImageContainer,
