@@ -15,11 +15,11 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.main`
-  padding: .4rem 1.6rem 8.8rem 1.6rem;
+  padding: 1.6rem 1.6rem 8.8rem 1.6rem;
   height: 100%;
 
   @media (min-width: ${sizes.laptop}) {
-    padding: 0 1.6rem .8rem 8.8rem;
+    padding: 1.6rem 1.6rem 1.6rem 8.8rem;
   }
 `;
 
@@ -39,4 +39,5 @@ export const GradientSpan = styled.span`
 
 export const MainTitleContainer = styled.div`
   position: relative;
+  margin-bottom: 1.6rem;
 `;
