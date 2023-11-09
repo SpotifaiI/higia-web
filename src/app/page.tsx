@@ -1,4 +1,4 @@
-import { Award, CheckCircle, List, PauseCircle, PlayCircle, Users } from "react-feather";
+import { CheckCircle, List, PauseCircle, PlayCircle, Users } from "react-feather";
 
 import {
   StatisticContainerList,
