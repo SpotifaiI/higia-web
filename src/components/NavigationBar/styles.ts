@@ -52,7 +52,6 @@ export const ButtonsContainer = styled.div`
   justify-content: center;
   height: 3.2rem;
   width: 100%;
-  gap: .8rem;
   max-width: 24rem;
 
   @media (min-width: ${sizes.laptop}) {

@@ -15,8 +15,8 @@ const standardButtonStyles = `
 `;
 
 export const NavigationButton = styled(Link)<NavigationButtonProps>`
-  width: 100%;
-  height: 100%;
+  width: 3.2rem;
+  height: 3.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
