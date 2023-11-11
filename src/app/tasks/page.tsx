@@ -66,44 +66,6 @@ function Tasks() {
                 </TaskListDataExtraInfo>
               </TaskListDataExtraContainer>
             </TaskListRow>
-
-            <TaskListRow>
-              <TaskListDataInfoContainer>
-                <TaskListDataInfoTitle href="/tasks">
-                  Avenida JK
-                </TaskListDataInfoTitle>
-                <TaskListDataInfoDistance>
-                  2 km
-                </TaskListDataInfoDistance>
-              </TaskListDataInfoContainer>
-
-              <TaskListDataExtraContainer>
-                <Users size={20} />
-
-                <TaskListDataExtraInfo>
-                  João da Silva
-                </TaskListDataExtraInfo>
-              </TaskListDataExtraContainer>
-            </TaskListRow>
-
-            <TaskListRow>
-              <TaskListDataInfoContainer>
-                <TaskListDataInfoTitle href="/tasks">
-                  Avenida JK
-                </TaskListDataInfoTitle>
-                <TaskListDataInfoDistance>
-                  2 km
-                </TaskListDataInfoDistance>
-              </TaskListDataInfoContainer>
-
-              <TaskListDataExtraContainer>
-                <Users size={20} />
-
-                <TaskListDataExtraInfo>
-                  João da Silva
-                </TaskListDataExtraInfo>
-              </TaskListDataExtraContainer>
-            </TaskListRow>
           </TaskListTable>
         </TaskListContainer>
       </TaskListGroup>

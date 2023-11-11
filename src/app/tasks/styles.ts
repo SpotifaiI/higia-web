@@ -39,12 +39,12 @@ export const TaskListGroup = styled.main`
   margin-top: 3.2rem;
 `;
 
-export const TaskListContainer = styled.div`
+export const TaskListContainer = styled.article`
   display: flex;
   flex-direction: column;
 `;
 
-export const TaskListHeader = styled.div`
+export const TaskListHeader = styled.header`
   display: flex;
   gap: .4rem;
   align-items: center;
@@ -57,9 +57,9 @@ export const TaskListTitle = styled.h3`
   line-height: 2rem;
 `;
 
-export const TaskListTable = styled.table``;
+export const TaskListTable = styled.section``;
 
-export const TaskListRow = styled.tr`
+export const TaskListRow = styled.div`
   padding: 1.2rem 0;
   display: flex;
   align-items: center;
@@ -70,7 +70,7 @@ export const TaskListRow = styled.tr`
   }
 `;
 
-export const TaskListDataInfoContainer = styled.td`
+export const TaskListDataInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: .4rem;
@@ -91,7 +91,7 @@ export const TaskListDataInfoDistance = styled.span`
   color: ${colors.dark};
 `;
 
-export const TaskListDataExtraContainer = styled.td`
+export const TaskListDataExtraContainer = styled.div`
   display: flex;
   align-items: center;
   gap: .4rem;

@@ -1,8 +1,8 @@
 'use client';
 
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components';
 
-import { colors } from "./theme";
+import { colors } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
