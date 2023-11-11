@@ -1,20 +1,15 @@
-import { Clock, Users } from 'react-feather';
+import { Clock } from 'react-feather';
 
 import { ActionButton } from '@/components/ActionButton';
 import { AppWrapper } from '@/components/AppWrapper';
 import { FormFieldInput } from '@/components/FormFieldInput';
+import { TaskListDataItem } from '@/components/TaskListDataItem';
 import {
   SearchContainer,
   SearchFieldsGroup,
   TaskListContainer,
-  TaskListDataExtraContainer,
-  TaskListDataExtraInfo,
-  TaskListDataInfoContainer,
-  TaskListDataInfoDistance,
-  TaskListDataInfoTitle,
   TaskListGroup,
   TaskListHeader,
-  TaskListRow,
   TaskListTable,
   TaskListTitle
 } from './styles';
@@ -48,24 +43,11 @@ function Tasks() {
           </TaskListHeader>
 
           <TaskListTable>
-            <TaskListRow>
-              <TaskListDataInfoContainer>
-                <TaskListDataInfoTitle href="/tasks">
-                  Avenida JK
-                </TaskListDataInfoTitle>
-                <TaskListDataInfoDistance>
-                  2 km
-                </TaskListDataInfoDistance>
-              </TaskListDataInfoContainer>
-
-              <TaskListDataExtraContainer>
-                <Users size={20} />
-
-                <TaskListDataExtraInfo>
-                  João da Silva
-                </TaskListDataExtraInfo>
-              </TaskListDataExtraContainer>
-            </TaskListRow>
+            <TaskListDataItem
+              title="Avenida JK"
+              distanceInKm={2}
+              person="João da Silva"
+            />
           </TaskListTable>
         </TaskListContainer>
       </TaskListGroup>
