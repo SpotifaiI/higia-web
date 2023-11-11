@@ -29,6 +29,6 @@ export const NavigationButton = styled(Link)<NavigationButtonProps>`
   }
 
   &:hover {
-    ${activeButtonStyles}
+    opacity: .4;
   }
 `;

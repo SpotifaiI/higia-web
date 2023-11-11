@@ -1,56 +1,104 @@
 'use client';
 
-import styled from "styled-components";
+import Link from 'next/link';
+import styled from 'styled-components';
 
-import { sizes } from "@/global/sizes";
+import { sizes } from '@/global/sizes';
+import { colors } from '@/global/theme';
 
 export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: .8rem;
 
-  @media (min-width: ${sizes.tablet}) {
-    display: grid;
-    grid-template-areas:
-      "a a b b"
-      "c c c c";
+  @media (min-width: ${sizes.laptop}) {
+    & > button {
+      align-self: flex-end;
+      height: 4rem;
+    }
   }
 `;
 
-export const SearchFieldContainer = styled.div`
+export const SearchFieldsGroup = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+
+  @media (min-width: ${sizes.tablet}) {
+    flex-direction: row;
+
+    & > * {
+      flex: 1;
+    }
+  }
+`;
+
+export const TaskListGroup = styled.main`
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 3.2rem;
+`;
+
+export const TaskListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TaskListHeader = styled.div`
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+  margin-bottom: .8rem;
+`;
+
+export const TaskListTitle = styled.h3`
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2rem;
+`;
+
+export const TaskListTable = styled.table``;
+
+export const TaskListRow = styled.tr`
+  padding: 1.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:not(:first-child) {
+    border-top: .2rem solid ${colors.light};
+  }
+`;
+
+export const TaskListDataInfoContainer = styled.td`
   display: flex;
   flex-direction: column;
   gap: .4rem;
-  grid-area: a;
 `;
 
-export const SearchFieldLabel = styled.label`
+export const TaskListDataInfoTitle = styled(Link)`
+  text-decoration: underline;
   font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-darker);
   line-height: 1.6rem;
+  font-weight: 700;
+  color: ${colors.main2};
 `;
 
-export const SearchFieldGroup = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const SearchField = styled.input`
-  background-color: var(--color-white);
-  border: 0;
-  border-radius: 1rem;
-  height: 4.8rem;
-  padding: 0 4.8rem 0 1.6rem;
-  color: var(--color-dark);
+export const TaskListDataInfoDistance = styled.span`
   font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 700;
+  color: ${colors.dark};
 `;
 
-export const SearchFieldIconContainer = styled.span`
-  position: absolute;
-  right: 1.6rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-darker);
+export const TaskListDataExtraContainer = styled.td`
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  color: ${colors.dark};
+`;
+
+export const TaskListDataExtraInfo = styled.span`
+  font-size: 1rem;
+  line-height: 1.6rem;
 `;
