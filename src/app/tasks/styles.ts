@@ -34,5 +34,14 @@ export const SearchFieldsGroup = styled.section`
 export const TaskListGroup = styled.main`
   display: grid;
   grid-template-columns: 1fr;
-  margin-top: 3.2rem;
+  margin-top: 4.8rem;
+  gap: 3.2rem;
+
+  @media (min-width: ${sizes.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: ${sizes.laptop}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;

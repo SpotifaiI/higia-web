@@ -1,4 +1,4 @@
-import { Clock } from 'react-feather';
+import { CheckCircle, Clock, Zap } from 'react-feather';
 
 import { ActionButton } from '@/components/ActionButton';
 import { AppWrapper } from '@/components/AppWrapper';
@@ -32,6 +32,50 @@ function Tasks() {
         <TaskList
           title="Pendentes"
           TitleIcon={Clock}
+          items={[
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            }
+          ]}
+        />
+
+        <TaskList
+          title="Ativas"
+          TitleIcon={Zap}
+          items={[
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            }
+          ]}
+        />
+
+        <TaskList
+          title="Concluídas"
+          TitleIcon={CheckCircle}
           items={[
             {
               title: "Avenida JK",
