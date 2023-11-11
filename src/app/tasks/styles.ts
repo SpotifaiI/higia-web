@@ -36,23 +36,3 @@ export const TaskListGroup = styled.main`
   grid-template-columns: 1fr;
   margin-top: 3.2rem;
 `;
-
-export const TaskListContainer = styled.article`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const TaskListHeader = styled.header`
-  display: flex;
-  gap: .4rem;
-  align-items: center;
-  margin-bottom: .8rem;
-`;
-
-export const TaskListTitle = styled.h3`
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 2rem;
-`;
-
-export const TaskListTable = styled.section``;

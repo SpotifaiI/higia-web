@@ -3,15 +3,11 @@ import { Clock } from 'react-feather';
 import { ActionButton } from '@/components/ActionButton';
 import { AppWrapper } from '@/components/AppWrapper';
 import { FormFieldInput } from '@/components/FormFieldInput';
-import { TaskListDataItem } from '@/components/TaskListDataItem';
+import { TaskList } from '@/components/TaskList';
 import {
   SearchContainer,
   SearchFieldsGroup,
-  TaskListContainer,
-  TaskListGroup,
-  TaskListHeader,
-  TaskListTable,
-  TaskListTitle
+  TaskListGroup
 } from './styles';
 
 function Tasks() {
@@ -33,23 +29,27 @@ function Tasks() {
       </SearchContainer>
 
       <TaskListGroup>
-        <TaskListContainer>
-          <TaskListHeader>
-            <Clock size={24} />
-
-            <TaskListTitle>
-              Pendentes
-            </TaskListTitle>
-          </TaskListHeader>
-
-          <TaskListTable>
-            <TaskListDataItem
-              title="Avenida JK"
-              distanceInKm={2}
-              person="João da Silva"
-            />
-          </TaskListTable>
-        </TaskListContainer>
+        <TaskList
+          title="Pendentes"
+          TitleIcon={Clock}
+          items={[
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            }
+          ]}
+        />
       </TaskListGroup>
     </AppWrapper>
   );

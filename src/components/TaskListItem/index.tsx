@@ -9,17 +9,17 @@ import {
   TaskListRow
 } from './styles';
 
-export type TaskListDataItemProps = {
+export type TaskListItemProps = {
   title: string;
   distanceInKm: number;
   person: string;
 };
 
-export function TaskListDataItem({
+export function TaskListItem({
   title,
   distanceInKm,
   person
-}: TaskListDataItemProps) {
+}: TaskListItemProps) {
   return (
     <TaskListRow>
       <TaskListDataInfoContainer>
