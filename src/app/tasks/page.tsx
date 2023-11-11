@@ -1,46 +1,100 @@
-import { Calendar, Search } from "react-feather";
+import { CheckCircle, Clock, Zap } from 'react-feather';
 
-import { AppWrapper } from "@/components/AppWrapper";
-import { ActionButton } from "@/components/ActionButton";
+import { ActionButton } from '@/components/ActionButton';
+import { AppWrapper } from '@/components/AppWrapper';
+import { FormFieldInput } from '@/components/FormFieldInput';
+import { TaskList } from '@/components/TaskList';
 import {
   SearchContainer,
-  SearchFieldContainer,
-  SearchFieldLabel,
-  SearchFieldGroup,
-  SearchField,
-  SearchFieldIconContainer
-} from "./styles";
+  SearchFieldsGroup,
+  TaskListGroup
+} from './styles';
 
 function Tasks() {
   return (
     <AppWrapper title="Tarefas">
-      <p>Aqui estão as tarefas</p>
-
       <SearchContainer>
-        <SearchFieldContainer style={{ gridArea: 'a' }}>
-          <SearchFieldLabel htmlFor="#Btn-one">Data Início</SearchFieldLabel>
-          <SearchFieldGroup>
-            <SearchField id="Btn-one"/>
-            <SearchFieldIconContainer>
-              <Calendar size={32} />
-            </SearchFieldIconContainer>
-          </SearchFieldGroup>
-        </SearchFieldContainer>
-
-        <SearchFieldContainer style={{ gridArea: 'b' }}>
-          <SearchFieldLabel htmlFor="#Btn-two">Data Início</SearchFieldLabel>
-          <SearchFieldGroup>
-            <SearchField id="Btn-two"/>
-            <SearchFieldIconContainer>
-              <Calendar size={32} />
-            </SearchFieldIconContainer>
-          </SearchFieldGroup>
-        </SearchFieldContainer>
+        <SearchFieldsGroup>
+          <FormFieldInput label="Colaborador" />
+          <FormFieldInput label="Descrição" />
+        </SearchFieldsGroup>
+        <SearchFieldsGroup>
+          <FormFieldInput label="Data Início" />
+          <FormFieldInput label="Data Fim" />
+        </SearchFieldsGroup>
 
         <ActionButton
           label="Buscar"
         />
       </SearchContainer>
+
+      <TaskListGroup>
+        <TaskList
+          title="Pendentes"
+          TitleIcon={Clock}
+          items={[
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            }
+          ]}
+        />
+
+        <TaskList
+          title="Ativas"
+          TitleIcon={Zap}
+          items={[
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            }
+          ]}
+        />
+
+        <TaskList
+          title="Concluídas"
+          TitleIcon={CheckCircle}
+          items={[
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            },
+            {
+              title: "Avenida JK",
+              distanceInKm: 2,
+              person: 'João da Silva'
+            }
+          ]}
+        />
+      </TaskListGroup>
     </AppWrapper>
   );
 }

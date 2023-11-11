@@ -1,8 +1,8 @@
 'use client';
 
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from 'styled-components';
 
-import { colors } from "./theme";
+import { colors } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -56,6 +56,8 @@ export const components = {
     line-height: 1.6rem;
     font-weight: 700;
     transition: .3s;
+    padding: 0 1.6rem;
+    gap: .8rem;
     cursor: pointer;
 
     &:hover {

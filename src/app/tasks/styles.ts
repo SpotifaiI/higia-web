@@ -1,56 +1,47 @@
 'use client';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { sizes } from "@/global/sizes";
+import { sizes } from '@/global/sizes';
 
 export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: .8rem;
 
-  @media (min-width: ${sizes.tablet}) {
-    display: grid;
-    grid-template-areas:
-      "a a b b"
-      "c c c c";
+  @media (min-width: ${sizes.laptop}) {
+    & > button {
+      align-self: flex-end;
+      height: 4rem;
+    }
   }
 `;
 
-export const SearchFieldContainer = styled.div`
+export const SearchFieldsGroup = styled.section`
   display: flex;
   flex-direction: column;
-  gap: .4rem;
-  grid-area: a;
+  gap: .8rem;
+
+  @media (min-width: ${sizes.tablet}) {
+    flex-direction: row;
+
+    & > * {
+      flex: 1;
+    }
+  }
 `;
 
-export const SearchFieldLabel = styled.label`
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-darker);
-  line-height: 1.6rem;
-`;
+export const TaskListGroup = styled.main`
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 4.8rem;
+  gap: 3.2rem;
 
-export const SearchFieldGroup = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-`;
+  @media (min-width: ${sizes.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-export const SearchField = styled.input`
-  background-color: var(--color-white);
-  border: 0;
-  border-radius: 1rem;
-  height: 4.8rem;
-  padding: 0 4.8rem 0 1.6rem;
-  color: var(--color-dark);
-  font-size: 1rem;
-`;
-
-export const SearchFieldIconContainer = styled.span`
-  position: absolute;
-  right: 1.6rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--color-darker);
+  @media (min-width: ${sizes.laptop}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;

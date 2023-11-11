@@ -2,6 +2,8 @@
 
 import styled from 'styled-components';
 
+import { colors } from '@/global/theme';
+
 export const FormFieldContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,4 +24,5 @@ export const FormField = styled.input`
   background-color: var(--color-white);
   color: var(--color-dark);
   padding: 0 1.6rem;
+  outline-color: ${colors.main1};
 `;
