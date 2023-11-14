@@ -1,14 +1,15 @@
-import { CheckCircle, Clock, Zap } from 'react-feather';
+import {CheckCircle, Clock, Zap, PlusCircle} from 'react-feather';
 
-import { ActionButton } from '@/components/ActionButton';
 import { AppWrapper } from '@/components/AppWrapper';
 import { FormFieldInput } from '@/components/FormFieldInput';
 import { TaskList } from '@/components/TaskList';
+import { GradientActionButton } from '@/components/GradientActionButton';
 import {
   SearchContainer,
   SearchFieldsGroup,
-  TaskListGroup
+  TaskListGroup, TaskListTools
 } from './styles';
+import {colors} from "@/global/theme";
 
 function Tasks() {
   return (
@@ -23,10 +24,17 @@ function Tasks() {
           <FormFieldInput label="Data Fim" />
         </SearchFieldsGroup>
 
-        <ActionButton
-          label="Buscar"
-        />
+        <GradientActionButton>
+          Buscar
+        </GradientActionButton>
       </SearchContainer>
+
+      <TaskListTools>
+        <GradientActionButton>
+          <PlusCircle size={32} color={colors.white} />
+          Adicionar
+        </GradientActionButton>
+      </TaskListTools>
 
       <TaskListGroup>
         <TaskList

@@ -3,11 +3,15 @@
 import styled from 'styled-components';
 
 import { sizes } from '@/global/sizes';
+import { colors } from '@/global/theme';
 
 export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: .8rem;
+  background: ${colors.light};
+  padding: 1.6rem;
+  border-radius: 1.6rem;
 
   @media (min-width: ${sizes.laptop}) {
     & > button {
@@ -34,7 +38,7 @@ export const SearchFieldsGroup = styled.section`
 export const TaskListGroup = styled.main`
   display: grid;
   grid-template-columns: 1fr;
-  margin-top: 4.8rem;
+  margin-top: 2.4rem;
   gap: 3.2rem;
 
   @media (min-width: ${sizes.tablet}) {
@@ -43,5 +47,18 @@ export const TaskListGroup = styled.main`
 
   @media (min-width: ${sizes.laptop}) {
     grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+export const TaskListTools = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.4rem;
+
+  @media (min-width: ${sizes.laptop}) {
+    & > button {
+      align-self: flex-end;
+      height: 4rem;
+    }
   }
 `;

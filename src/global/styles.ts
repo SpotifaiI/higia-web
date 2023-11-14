@@ -51,13 +51,16 @@ export const components = {
   ActionButton: styled.button`
     border: 0;
     border-radius: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
     height: 4rem;
     font-size: 1rem;
     line-height: 1.6rem;
     font-weight: 700;
     transition: .3s;
     padding: 0 1.6rem;
-    gap: .8rem;
     cursor: pointer;
 
     &:hover {
