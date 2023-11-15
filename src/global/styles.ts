@@ -40,6 +40,11 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
+  .leaflet-container {
+    width: 100%;
+    height: 100vh;
+  }
 `;
 
 export const css = {
