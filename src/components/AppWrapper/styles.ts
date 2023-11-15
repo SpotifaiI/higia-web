@@ -38,6 +38,18 @@ export const GradientSpan = styled.span`
 `;
 
 export const MainTitleContainer = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 1.6rem;
+  gap: 1.6rem;
+
+  @media (min-width: ${sizes.tablet}) {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+  }
+`;
+
+export const TitleTextContainer = styled.div`
+  position: relative;
 `;

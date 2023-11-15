@@ -1,4 +1,12 @@
-import {CheckCircle, Clock, Zap, PlusCircle} from 'react-feather';
+'use client';
+
+import {
+  CheckCircle,
+  Clock,
+  Zap,
+  PlusCircle
+} from 'react-feather';
+import { useRouter } from "next/navigation";
 
 import { AppWrapper } from '@/components/AppWrapper';
 import { FormFieldInput } from '@/components/FormFieldInput';
@@ -9,9 +17,15 @@ import {
   SearchFieldsGroup,
   TaskListGroup, TaskListTools
 } from './styles';
-import {colors} from "@/global/theme";
+import { colors } from '@/global/theme';
 
 function Tasks() {
+  const router = useRouter();
+
+  function onAddTaskHandler() {
+    router.push('/tasks/register');
+  }
+
   return (
     <AppWrapper title="Tarefas">
       <SearchContainer>
@@ -30,7 +44,7 @@ function Tasks() {
       </SearchContainer>
 
       <TaskListTools>
-        <GradientActionButton>
+        <GradientActionButton onClick={onAddTaskHandler}>
           <PlusCircle size={32} color={colors.white} />
           Adicionar
         </GradientActionButton>
