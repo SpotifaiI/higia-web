@@ -1,25 +1,39 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren } from 'react';
 
-import { NavigationBar } from "@/components/NavigationBar";
+import { BackLink } from '@/components/BackLink';
+import { NavigationBar } from '@/components/NavigationBar';
 import {
   Container,
   Content,
   GradientSpan,
   MainTitle,
-  MainTitleContainer
-} from "./styles";
+  MainTitleContainer,
+  TitleTextContainer
+} from './styles';
 
 export type AppWrapperProps = {
   title: string;
+  backTo?: string;
 } & PropsWithChildren;
 
-export function AppWrapper({ title, children }: AppWrapperProps) {
+export function AppWrapper({
+  title,
+  backTo,
+  children
+}: AppWrapperProps) {
   return (
     <Container>
       <Content>
         <MainTitleContainer>
-          <GradientSpan />
-          <MainTitle>{title}</MainTitle>
+          {
+            (backTo)
+              ? (<BackLink href={backTo} />)
+              : null
+          }
+          <TitleTextContainer>
+            <GradientSpan />
+            <MainTitle>{title}</MainTitle>
+          </TitleTextContainer>
         </MainTitleContainer>
 
         {children}
