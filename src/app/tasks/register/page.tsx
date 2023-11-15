@@ -1,3 +1,5 @@
+'use client';
+
 import { Save } from 'react-feather';
 
 import { AppWrapper } from '@/components/AppWrapper';
@@ -5,6 +7,8 @@ import { GradientActionButton } from '@/components/GradientActionButton';
 import { FormFieldInput } from '@/components/FormFieldInput';
 
 import {
+  MapBox,
+  MapLayer,
   TaskForm,
   TaskFormContainer,
   TaskFormFooter,
@@ -41,7 +45,13 @@ function RegisterTask() {
         </TaskForm>
 
         <TaskMapContainer>
-
+          <MapBox center={[45.4, -75.7]} zoom={12} scrollWheelZoom={true}>
+            <MapLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              noWrap={true}
+            />
+          </MapBox >
         </TaskMapContainer>
 
         <TaskFormFooter>
