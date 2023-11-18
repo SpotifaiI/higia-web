@@ -1,3 +1,5 @@
+import 'leaflet/dist/leaflet.css';
+
 import React, { PropsWithChildren } from 'react';
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
