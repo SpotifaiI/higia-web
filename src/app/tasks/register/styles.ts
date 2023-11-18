@@ -28,7 +28,9 @@ export const TaskFormFooter = styled.footer`
 `;
 
 export const MapBox = styled(MapContainer)`
-
+  width: 100%;
+  height: 100%;
+  position: relative;
 `;
 
 export const MapLayer = styled(TileLayer)`

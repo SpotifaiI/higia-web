@@ -19,6 +19,7 @@ export const Navigation = styled.nav`
   align-items: center;
   justify-content: center;
   margin: 0 .8rem .8rem .8rem;
+  z-index: 1000;
 
   @media (min-width: ${sizes.tablet}) {
     justify-content: space-between;
