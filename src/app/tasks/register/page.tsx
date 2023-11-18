@@ -5,41 +5,44 @@ import { Save } from 'react-feather';
 import { AppWrapper } from '@/components/AppWrapper';
 import { GradientActionButton } from '@/components/GradientActionButton';
 import { FormFieldInput } from '@/components/FormFieldInput';
+import {TaskMap} from "@/components/TaskMap";
 
 import {
   TaskForm,
   TaskFormContainer,
-  TaskFormRow,
-  TaskFormFooter
+  TaskFormFooter,
+  TaskFormRowGeneral,
+  TaskFormRowAddress,
+  TaskFormRowRef,
+  TaskFormRowLocation
 } from './styles';
-import {TaskMap} from "@/components/TaskMap";
 
 function RegisterTask() {
   return (
     <AppWrapper backTo="/tasks"  title="Criar Tarefa">
       <TaskFormContainer>
         <TaskForm>
-          <TaskFormRow>
+          <TaskFormRowGeneral>
             <FormFieldInput label="Colaborador" />
             <FormFieldInput label="Data Objetivo" />
             <FormFieldInput label="Data Criação" />
-          </TaskFormRow>
+          </TaskFormRowGeneral>
 
-          <TaskFormRow>
+          <TaskFormRowAddress>
             <FormFieldInput label="CEP" />
             <FormFieldInput label="Endereço" />
             <FormFieldInput label="Número" />
-          </TaskFormRow>
+          </TaskFormRowAddress>
 
-          <TaskFormRow>
+          <TaskFormRowRef>
             <FormFieldInput label="Referência" />
-          </TaskFormRow>
+          </TaskFormRowRef>
 
-          <TaskFormRow>
+          <TaskFormRowLocation>
             <FormFieldInput label="Bairro" />
             <FormFieldInput label="Cidade" />
             <FormFieldInput label="Estado" />
-          </TaskFormRow>
+          </TaskFormRowLocation>
         </TaskForm>
 
         <TaskMap />

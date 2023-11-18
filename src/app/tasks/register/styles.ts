@@ -1,6 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
+import {sizes} from "@/global/sizes";
 
 export const TaskFormContainer = styled.div`
   display: flex;
@@ -16,8 +17,45 @@ export const TaskForm = styled.form`
 
 export const TaskFormRow = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
   gap: .8rem;
+`;
+
+export const TaskFormRowGeneral = styled(TaskFormRow)`
+  @media (min-width: ${sizes.tablet}) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  @media (min-width: ${sizes.laptop}) {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+`;
+
+export const TaskFormRowAddress = styled(TaskFormRow)`
+  @media (min-width: ${sizes.tablet}) {
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  @media (min-width: ${sizes.laptop}) {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+  }
+`;
+
+export const TaskFormRowRef = styled(TaskFormRow)``;
+
+export const TaskFormRowLocation = styled(TaskFormRow)`
+  @media (min-width: ${sizes.tablet}) {
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  @media (min-width: ${sizes.laptop}) {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+  }
 `;
 
 export const TaskFormFooter = styled.footer`
