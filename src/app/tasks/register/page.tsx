@@ -7,14 +7,12 @@ import { GradientActionButton } from '@/components/GradientActionButton';
 import { FormFieldInput } from '@/components/FormFieldInput';
 
 import {
-  MapBox,
-  MapLayer,
   TaskForm,
   TaskFormContainer,
-  TaskFormFooter,
   TaskFormRow,
-  TaskMapContainer
+  TaskFormFooter
 } from './styles';
+import {TaskMap} from "@/components/TaskMap";
 
 function RegisterTask() {
   return (
@@ -44,19 +42,7 @@ function RegisterTask() {
           </TaskFormRow>
         </TaskForm>
 
-        <TaskMapContainer>
-          <MapBox
-            center={[45.4, -75.7]}
-            zoom={12}
-            scrollWheelZoom={true}
-            zoomControl={false}>
-            <MapLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              noWrap={true}
-            />
-          </MapBox>
-        </TaskMapContainer>
+        <TaskMap />
 
         <TaskFormFooter>
           <GradientActionButton>

@@ -1,38 +1,26 @@
 'use client';
 
 import styled from 'styled-components';
-import {
-  MapContainer,
-  TileLayer
-} from 'react-leaflet';
 
 export const TaskFormContainer = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 `;
 
 export const TaskForm = styled.form`
-
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
 `;
 
-export const TaskFormRow = styled.div``;
-
-export const TaskMapContainer = styled.div`
-  width: 100%;
-  height: 30rem;
-  overflow: hidden;
-  border-radius: 1rem;
+export const TaskFormRow = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .8rem;
 `;
 
 export const TaskFormFooter = styled.footer`
-
-`;
-
-export const MapBox = styled(MapContainer)`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`;
-
-export const MapLayer = styled(TileLayer)`
-
+  display: flex;
+  justify-content: end;
 `;
