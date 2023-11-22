@@ -7,8 +7,8 @@ import { AppWrapper } from '@/components/AppWrapper';
 import { FormFieldInput } from '@/components/FormFieldInput';
 import { TaskList } from '@/components/TaskList';
 import { GradientActionButton } from '@/components/GradientActionButton';
+import { TaskMap as TaskMapComponent } from '@/components/TaskMap';
 import {
-  MapLayout,
   SearchContainer,
   SearchFieldsGroup,
 } from './styles';
@@ -34,26 +34,7 @@ function TaskMap() {
       </SearchContainer>
 
       {/* Mapa React Leaflet */}
-      <MapLayout>
-        <MapContainer 
-          center={position} 
-          zoom={13} 
-          scrollWheelZoom={false}
-          style={{
-            width: '100%',
-            height: 700
-          }}>
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker position={position}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </MapContainer>
-      </MapLayout>
+      <TaskMapComponent />
     </AppWrapper>
   );
 }
