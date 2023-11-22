@@ -35,7 +35,7 @@ function Profile() {
           <ProfileName>Alberto da Nóbrega</ProfileName>
         </ProfileHeader>
         <ProfileBody>
-          <ProfileDetails label="E-mail" text="contato@joao.com.br" />
+          <ProfileDetails label="E-mail" text="contato@aberto.com.br" />
           <ProfileDetails label="Telefone" text="(47) 9 9999-9999" />
           <ProfileDetails label="Data de Nascimento" text="23/10/1963" />
           <ProfileDetails
