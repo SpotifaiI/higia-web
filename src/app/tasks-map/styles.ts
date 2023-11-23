@@ -11,6 +11,7 @@ export const SearchContainer = styled.div`
   background: ${colors.light};
   padding: 1.6rem;
   border-radius: 1.6rem;
+  margin-bottom: 1.8rem;
 
     @media (min-width: ${sizes.laptop}) {
       flex-direction: row;
@@ -40,10 +41,4 @@ export const SearchFieldsGroup = styled.section`
       width: 100%;
     }
 
-`;
-
-export const MapLayout = styled.main`
-  height: 100%;
-  width: 100vh;
-  position: relative;
 `;

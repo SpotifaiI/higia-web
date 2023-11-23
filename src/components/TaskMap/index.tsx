@@ -1,10 +1,11 @@
 import {MapBox, MapLayer, TaskMapContainer} from "./styles";
 
 export function TaskMap() {
+
   return (
     <TaskMapContainer>
       <MapBox
-        center={[45.4, -75.7]}
+       center={[-26.3045, -48.8489]}
         zoom={12}
         scrollWheelZoom={true}
         zoomControl={false}>

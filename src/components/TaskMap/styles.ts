@@ -17,5 +17,5 @@ export const MapBox = styled(MapContainer)`
 `;
 
 export const MapLayer = styled(TileLayer)`
-
+  
 `;
