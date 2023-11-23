@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from "next/navigation";
-
+import Link from 'next/link';
 import { TabNavigationButton } from "@/components/TabNavigationButton";
 import { routes } from "@/lib/routes";
 import {
@@ -17,6 +17,7 @@ export function NavigationBar() {
 
   return (
     <Navigation>
+      <Link href={'/'}>
       <ImageContainer>
         <LogoImage
           src="/assets/images/higia-accent.png"
@@ -24,7 +25,7 @@ export function NavigationBar() {
           fill={true}
         />
       </ImageContainer>
-
+      </Link>
       <ButtonsContainer>
         {routes.map(({ path, Icon }, index) => (
           <TabNavigationButton

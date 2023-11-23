@@ -54,6 +54,7 @@ export const TaskListTools = styled.section`
   display: flex;
   flex-direction: column;
   margin-top: 2.4rem;
+  
 
   @media (min-width: ${sizes.laptop}) {
     & > button {
