@@ -4,15 +4,18 @@ import styled from "styled-components";
 
 export const ColaboratorsTitle = styled.div`
 display: grid;
-grid-template-columns: 1fr;
+grid-template-columns: 1fr 1fr 1fr;
 justify-content: space-around;
 align-items: center;
 width: 100%;
+overflow-x: scroll;
+white-space: nowrap;
 `;
 
 export const ColaboratorsInfo = styled.div`
 display: flex;
 flex-direction: column;
+align-items: center;
 width: 100%;
 margin-top: .8rem;
 `;

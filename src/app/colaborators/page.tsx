@@ -1,11 +1,29 @@
+'use client';
 import { AppWrapper } from "@/components/AppWrapper";
-import { Users, PauseCircle } from "react-feather";
-import { TaskList } from '@/components/TaskList';
+import { Users, PauseCircle, PlusCircle } from "react-feather";
 import { ColaboratorsEmail, ColaboratorsMainFont, ColaboratorsIncialDate, ColaboratorsName, ColaboratorsTitle, ColaboratorsFont } from "./styles";
+import { TaskListTools } from "../tasks/styles";
+import { GradientActionButton } from "@/components/GradientActionButton";
+import { useRouter } from "next/navigation";
+import { use } from "react";
+
 
 function Colaborators() {
+  const router = useRouter();
+
+  function onAddColaboratorsHandler() {
+    router.push('/colaborators/register');
+  }
   return (
     <AppWrapper title="Colaboradores">
+
+      <TaskListTools>
+        <GradientActionButton onClick={onAddColaboratorsHandler}>
+          <PlusCircle size={32} color="white" />
+          Adicionar
+        </GradientActionButton>
+      </TaskListTools>
+      
       <ColaboratorsTitle>
      
         <ColaboratorsName>
