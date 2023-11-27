@@ -14,7 +14,7 @@ function RegisterTask() {
     <StatisticContainerListMin>
 
       <FormFieldInput label='Nome' placeholder='Digite o nome do colaborador aqui !'></FormFieldInput>
-      <FormFieldInput label='Data Nascimento' placeholder='dd/mm/aaaa'></FormFieldInput>
+      <FormFieldInput label='Data Nascimento' placeholder='dd/mm/aaaa'></FormFieldInput>  
 
 
     </StatisticContainerListMin>
