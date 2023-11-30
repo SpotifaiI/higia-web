@@ -1,6 +1,7 @@
 import { Http, HttpInstance } from '@/helpers/http';
 
-import { DbTask, Task } from './tasks.model';
+import { taskStatus } from './tasks.constants';
+import { DbTask, OrderedTasks, Task } from './tasks.model';
 
 export class TasksAPI {
   private http: HttpInstance;
@@ -13,5 +14,37 @@ export class TasksAPI {
     const { data } = await this.http.get<DbTask[]>('/');
 
     return data.map(task => new Task(task));
+  }
+
+  async getOrderedTasks(): Promise<OrderedTasks> {
+    const tasksList = await this.getTasks();
+
+    console.log(tasksList);
+
+    const pending: Task[] = [];
+    const active: Task[] = [];
+    const concluded: Task[] = [];
+
+    tasksList.forEach(task => {
+      switch (task.status) {
+        case taskStatus.active:
+          active.push(task);
+          break;
+
+        case taskStatus.pending:
+          pending.push(task);
+          break;
+
+        case taskStatus.concluded:
+          concluded.push(task);
+          break;
+      }
+    });
+
+    return {
+      pending,
+      active,
+      concluded
+    };
   }
 }

@@ -1,8 +1,14 @@
-import { status } from './tasks.constants';
+import { taskStatus } from './tasks.constants';
 
 export type TaskCoordinate = {
   lat: number;
   lng: number;
+};
+
+export type OrderedTasks = {
+  pending: Task[];
+  active: Task[];
+  concluded: Task[];
 };
 
 export interface DbTask {
@@ -70,12 +76,12 @@ export class Task {
       this.endTime = new Date(endTime);
     }
 
-    this.status = status.pending;
+    this.status = taskStatus.pending;
     if (this.startTime) {
-      this.status = status.active;
+      this.status = taskStatus.active;
     }
     if (this.endTime) {
-      this.status = status.concluded;
+      this.status = taskStatus.concluded;
     }
   }
 }

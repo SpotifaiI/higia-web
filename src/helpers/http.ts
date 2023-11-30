@@ -20,7 +20,8 @@ export class Http {
 
   create(): HttpInstance {
     return axios.create({
-      baseURL: this.baseUrl
+      baseURL: this.baseUrl,
+      withCredentials: false
     });
   }
 }

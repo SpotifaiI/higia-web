@@ -1,26 +1,45 @@
 'use client';
 
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
 import {
   CheckCircle,
   Clock,
-  Zap,
-  PlusCircle
+  PlusCircle,
+  Zap
 } from 'react-feather';
-import { useRouter } from "next/navigation";
 
+import { TasksAPI } from '@/api/tasks/tasks';
+import { Task } from "@/api/tasks/tasks.model";
 import { AppWrapper } from '@/components/AppWrapper';
 import { FormFieldInput } from '@/components/FormFieldInput';
-import { TaskList } from '@/components/TaskList';
 import { GradientActionButton } from '@/components/GradientActionButton';
+import { TaskList } from '@/components/TaskList';
+import { colors } from '@/global/theme';
+
 import {
   SearchContainer,
   SearchFieldsGroup,
   TaskListGroup, TaskListTools
 } from './styles';
-import { colors } from '@/global/theme';
 
 function Tasks() {
   const router = useRouter();
+
+  const [pendingTasks, setPendingTasks] = useState<Task[]>([]);
+  const [activeTasks, setActiveTasks] = useState<Task[]>([]);
+  const [concludedTasks, setConcludedTasks] = useState<Task[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const tasksApi = new TasksAPI();
+      const { pending, active, concluded } = await tasksApi.getOrderedTasks();
+
+      setPendingTasks(pending);
+      setActiveTasks(active);
+      setConcludedTasks(concluded);
+    })();
+  }, []);
 
   function onAddTaskHandler() {
     router.push('/tasks/register');
@@ -54,67 +73,31 @@ function Tasks() {
         <TaskList
           title="Pendentes"
           TitleIcon={Clock}
-          items={[
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            },
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            },
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            }
-          ]}
+          items={pendingTasks.map(task => ({
+            person: 'João da Silva',
+            distanceInKm: 23,
+            title: task.description
+          }))}
         />
 
         <TaskList
           title="Ativas"
           TitleIcon={Zap}
-          items={[
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            },
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            },
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            }
-          ]}
+          items={activeTasks.map(task => ({
+            person: 'João da Silva',
+            distanceInKm: 23,
+            title: task.description
+          }))}
         />
 
         <TaskList
           title="Concluídas"
           TitleIcon={CheckCircle}
-          items={[
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            },
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            },
-            {
-              title: "Avenida JK",
-              distanceInKm: 2,
-              person: 'João da Silva'
-            }
-          ]}
+          items={concludedTasks.map(task => ({
+            person: 'João da Silva',
+            distanceInKm: 23,
+            title: task.description
+          }))}
         />
       </TaskListGroup>
     </AppWrapper>
