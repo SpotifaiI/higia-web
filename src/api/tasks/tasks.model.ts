@@ -11,7 +11,7 @@ export type OrderedTasks = {
   concluded: Task[];
 };
 
-export interface DbTask {
+export type DbTask = {
   id: string;
   initialCoordinate: string;
   endCoordinate: string;

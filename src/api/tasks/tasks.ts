@@ -19,8 +19,6 @@ export class TasksAPI {
   async getOrderedTasks(): Promise<OrderedTasks> {
     const tasksList = await this.getTasks();
 
-    console.log(tasksList);
-
     const pending: Task[] = [];
     const active: Task[] = [];
     const concluded: Task[] = [];
