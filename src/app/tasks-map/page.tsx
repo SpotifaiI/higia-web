@@ -1,22 +1,18 @@
-'use client';
+"use client";
 
-import { TasksAPI } from '@/api/tasks/tasks';
+import { TasksAPI } from "@/api/tasks/tasks";
 import { Task } from "@/api/tasks/tasks.model";
-import { AppWrapper } from '@/components/AppWrapper';
-import { FormFieldInput } from '@/components/FormFieldInput';
-import { GradientActionButton } from '@/components/GradientActionButton';
-import { TaskMap as TaskMapComponent } from '@/components/TaskMap';
-
-import { useEffect, useState } from 'react';
-import {
-  SearchContainer,
-  SearchFieldsGroup,
-} from './styles';
+import { AppWrapper } from "@/components/AppWrapper";
+import { FormFieldInput } from "@/components/FormFieldInput";
+import { GradientActionButton } from "@/components/GradientActionButton";
+import { TaskMap as TaskMapComponent } from "@/components/TaskMap";
+import { useEffect, useState } from "react";
+import { SearchContainer, SearchFieldsGroup } from "./styles";
 
 function TaskMap() {
   const position = {
     lat: 51.505,
-    lng: -0.09
+    lng: -0.09,
   }; // coordenadas iniciais
 
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -38,9 +34,7 @@ function TaskMap() {
           <FormFieldInput label="Data Fim" />
         </SearchFieldsGroup>
 
-        <GradientActionButton>
-          Buscar
-        </GradientActionButton>
+        <GradientActionButton>Buscar</GradientActionButton>
       </SearchContainer>
 
       {/* Mapa React Leaflet */}
