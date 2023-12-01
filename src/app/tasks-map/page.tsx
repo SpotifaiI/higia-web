@@ -1,6 +1,10 @@
 'use client';
 
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
 import React from 'react';
+import { TasksAPI } from '@/api/tasks/tasks';
+import { Task } from "@/api/tasks/tasks.model";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { CheckCircle, Clock, Zap, PlusCircle } from 'react-feather';
 import { AppWrapper } from '@/components/AppWrapper';
@@ -19,6 +23,17 @@ function TaskMap() {
     lat: 51.505,
     lng: -0.09
   }; // coordenadas iniciais
+
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const tasksApi = new TasksAPI();
+      const tasksList = await tasksApi.getTasks();
+
+      setTasks(tasksList);
+    })();
+  }, []);
 
   return (
     <AppWrapper title="Tarefas">
