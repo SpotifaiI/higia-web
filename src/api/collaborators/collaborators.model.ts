@@ -22,7 +22,7 @@ export class Collaborator {
   }: DbCollaborator) {
     this.id = id;
     this.email = email;
-    this.birthday = new Date(birthday);
+    this.birthday = new Date(birthday.replaceAll('/', '-'));
     this.name = name;
     this.phoneNumber = phoneNumber;
   }
