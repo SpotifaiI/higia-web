@@ -1,19 +1,32 @@
 'use client';
+import { CollaboratorsAPI } from "@/api/collaborators/collaborators";
+import { Collaborator } from "@/api/collaborators/collaborators.model";
 import { AppWrapper } from "@/components/AppWrapper";
-import { Users, PauseCircle, PlusCircle } from "react-feather";
-import { ColaboratorsEmail, ColaboratorsMainFont, ColaboratorsIncialDate, ColaboratorsName, ColaboratorsTitle, ColaboratorsFont } from "./styles";
-import { TaskListTools } from "../tasks/styles";
 import { GradientActionButton } from "@/components/GradientActionButton";
 import { useRouter } from "next/navigation";
-import { use } from "react";
+import { useEffect, useState } from "react";
+import { PlusCircle } from "react-feather";
+import { TaskListTools } from "../tasks/styles";
+import { ColaboratorsEmail, ColaboratorsFont, ColaboratorsIncialDate, ColaboratorsMainFont, ColaboratorsName, ColaboratorsTitle } from "./styles";
 
 
 function Colaborators() {
   const router = useRouter();
+  const [collaborators, setCollaborators] = useState<Collaborator[]>([]);
 
   function onAddColaboratorsHandler() {
     router.push('/colaborators/register');
   }
+
+  useEffect(() => {
+    (async () => {
+      const collaboratorsApi = new CollaboratorsAPI();
+      const collaboratorsList = await collaboratorsApi.getCollaborators();
+
+      setCollaborators(collaboratorsList);
+    })();
+  }, []);
+
   return (
     <AppWrapper title="Colaboradores">
 
@@ -23,45 +36,53 @@ function Colaborators() {
           Adicionar
         </GradientActionButton>
       </TaskListTools>
-      
+
       <ColaboratorsTitle>
-     
         <ColaboratorsName>
-        
           <ColaboratorsMainFont>NOME</ColaboratorsMainFont>
 
-          <ColaboratorsFont>Lucas Cristian de Souza</ColaboratorsFont>
-          <ColaboratorsFont>Marlon de Souza</ColaboratorsFont>
+          {
+            collaborators.map(({ name }, index) => (
+              <ColaboratorsFont key={index}>{name}</ColaboratorsFont>
+            ))
+          }
 
-        
+
         </ColaboratorsName>
 
-      
-      
+
+
         <ColaboratorsEmail>
-        
+
           <ColaboratorsMainFont>E-MAIL</ColaboratorsMainFont>
 
-          <ColaboratorsFont>lucas@hotmail.com</ColaboratorsFont>
-          <ColaboratorsFont>marlon@hotmail.com</ColaboratorsFont>
+
+          {
+            collaborators.map(({ email }, index) => (
+              <ColaboratorsFont key={index}>{email}</ColaboratorsFont>
+            ))
+          }
 
 
-        
+
         </ColaboratorsEmail>
 
-        
+
         <ColaboratorsIncialDate>
-        
+
          <ColaboratorsMainFont>CRIAÇÃO</ColaboratorsMainFont>
 
-         <ColaboratorsFont>02/09/2001</ColaboratorsFont>
-         <ColaboratorsFont>16/09/2003</ColaboratorsFont>
 
+         {
+            collaborators.map(({ birthday }, index) => (
+              <ColaboratorsFont key={index}>{birthday.getDate()}</ColaboratorsFont>
+            ))
+          }
 
 
         </ColaboratorsIncialDate>
-      
-      
+
+
       </ColaboratorsTitle>
     </AppWrapper>
   );

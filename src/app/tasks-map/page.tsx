@@ -1,18 +1,13 @@
 'use client';
 
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { CheckCircle, Clock, Zap, PlusCircle } from 'react-feather';
 import { AppWrapper } from '@/components/AppWrapper';
 import { FormFieldInput } from '@/components/FormFieldInput';
-import { TaskList } from '@/components/TaskList';
 import { GradientActionButton } from '@/components/GradientActionButton';
 import { TaskMap as TaskMapComponent } from '@/components/TaskMap';
 import {
   SearchContainer,
   SearchFieldsGroup,
 } from './styles';
-import { colors } from "@/global/theme";
 
 function TaskMap() {
   const position = {
