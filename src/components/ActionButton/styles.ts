@@ -9,3 +9,5 @@ export const MainButton = styled(components.ActionButton)`
   color: var(--color-lighter);
   background: ${css.linearGradient};
 `;
+
+// corrections
