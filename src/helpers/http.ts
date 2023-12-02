@@ -16,6 +16,7 @@ export class Http {
     if (resource) {
       this.baseUrl = `${this.baseUrl}/${resource}`;
     }
+
   }
 
   create(): HttpInstance {
