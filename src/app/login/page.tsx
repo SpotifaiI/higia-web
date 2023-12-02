@@ -1,5 +1,8 @@
+'use client'
 import Head from "next/head";
-
+import { gapi } from "gapi-script";
+import { useEffect, useState } from 'react';
+import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 import { FormFieldInput } from "@/components/FormFieldInput";
 import { GradientActionButton } from "@/components/GradientActionButton";
 import { SocialActionButton } from "@/components/SocialActionButton";
@@ -9,6 +12,7 @@ import {
   BrandLogoImage,
   BrandName,
   Container,
+  GoogleLoginButton,
   LoginContainer,
   LoginContainerWrapper,
   LoginFooter,
@@ -23,8 +27,42 @@ import {
 } from "./styles";
 
 function Login() {
+
+  const [name, setName] = useState<string | undefined>();
+  const [email, setEmail] = useState<string | undefined>();
+  const [profilePic, setProfilePic] = useState<string | undefined>();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const clientId = "51327336967-h5kl3utpnjlf4v6am3q399t3rfb9qagp.apps.googleusercontent.com"
+  useEffect(() => {
+    gapi.load("client:auth2", () => {
+        gapi.auth2.init({clientId:clientId})
+    })
+  },[])
+
+  const responseGoogle = (response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+    
+    console.log(response)
+
+    if ('googleId' in response && response.googleId)
+    {
+      console.log(response.googleId)
+    }
+
+    if ('profileObj' in response) {
+      const { profileObj } = response;
+      if (profileObj) {
+        setName(profileObj.name);
+        setEmail(profileObj.email);
+        setProfilePic(profileObj.imageUrl);
+        setIsLoggedIn(true);
+      }
+    }
+  };
+  
   return (
     <Container>
+
       <Head>
         <title>Higia | Login</title>
       </Head>
@@ -56,8 +94,15 @@ function Login() {
           </SeparatorContainer>
 
           <LoginFooter>
-            <SocialActionButton socialType="google" />
-            <SocialActionButton socialType="facebook" />
+            <div className="container">
+              <GoogleLoginButton
+                clientId="51327336967-h5kl3utpnjlf4v6am3q399t3rfb9qagp.apps.googleusercontent.com"
+                buttonText="Continuar com o Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+              />
+              
+            </div>  
           </LoginFooter>
         </LoginContainerWrapper>
       </LoginContainer>

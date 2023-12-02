@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import { sizes } from '@/global/sizes';
 import { css } from '@/global/styles';
+import GoogleLogin from 'react-google-login';
 
 export const Container = styled.div`
   min-height: 100vh;
@@ -133,4 +134,15 @@ export const LoginFooter = styled.footer`
   flex-direction: column;
   gap: .8rem;
   margin: 1.6rem 0;
+`;
+
+export const GoogleLoginButton = styled(GoogleLogin)`
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  border: 0;
+  border-radius: 3rem;
 `;
