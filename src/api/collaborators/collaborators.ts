@@ -1,5 +1,7 @@
 import { Http, HttpInstance } from '@/helpers/http';
 import { Collaborator, DbCollaborator } from './collaborators.model';
+import Colaborators from '@/app/colaborators/page';
+import { v4 as uuidv4 } from 'uuid'
 
 export class CollaboratorsAPI {
   private http: HttpInstance;
@@ -10,6 +12,7 @@ export class CollaboratorsAPI {
 
   async getCollaborators(): Promise<Collaborator[]> {
     const { data } = await this.http.get<DbCollaborator[]>('/');
+    console.log(data);
     const collaborators = data.map(({
       id,
       name,
@@ -40,5 +43,16 @@ export class CollaboratorsAPI {
     }
 
     return collaborator;
+  }
+
+  async createColaborators(collaborator:DbCollaborator){
+
+    if (!collaborator.id) {
+      collaborator.id = uuidv4();
+    }
+
+    const response = await this.http.post("/",collaborator);
+    console.log(response);
+    return response;
   }
 }
