@@ -70,15 +70,28 @@ export const components = {
   `,
 
   ActionWrapper: styled.section`
-  display: flex;
-  flex-direction: column;
-  margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.4rem;
 
-  @media (min-width: ${sizes.laptop}) {
-    & > button {
-      align-self: flex-end;
-      height: 4rem;
+    @media (min-width: ${sizes.laptop}) {
+      & > button {
+        align-self: flex-end;
+        height: 4rem;
+      }
     }
-  }
-`
+  `,
+
+  ListHeader: styled.header`
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+    margin-bottom: .8rem;
+  `,
+
+  ListTitle: styled.h3`
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2rem;
+  `
 };

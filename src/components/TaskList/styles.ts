@@ -1,23 +1,15 @@
 'use client';
 
 import styled from 'styled-components';
+import { components } from '@/global/styles';
 
 export const TaskListContainer = styled.article`
   display: flex;
   flex-direction: column;
 `;
 
-export const TaskListHeader = styled.header`
-  display: flex;
-  gap: .4rem;
-  align-items: center;
-  margin-bottom: .8rem;
-`;
+export const TaskListHeader = components.ListHeader;
 
-export const TaskListTitle = styled.h3`
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 2rem;
-`;
+export const TaskListTitle = components.ListTitle;
 
 export const TaskListTable = styled.section``;
