@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 
 import { sizes } from '@/global/sizes';
+import { components } from '@/global/styles';
 import { colors } from '@/global/theme';
 
 export const SearchContainer = styled.div`
@@ -50,16 +51,4 @@ export const TaskListGroup = styled.main`
   }
 `;
 
-export const TaskListTools = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin-top: 2.4rem;
-  
-
-  @media (min-width: ${sizes.laptop}) {
-    & > button {
-      align-self: flex-end;
-      height: 4rem;
-    }
-  }
-`;
+export const TaskListTools = components.ActionWrapper;

@@ -6,8 +6,15 @@ import { GradientActionButton } from "@/components/GradientActionButton";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { PlusCircle } from "react-feather";
-import { TaskListTools } from "../tasks/styles";
-import { ColaboratorsEmail, ColaboratorsFont, ColaboratorsIncialDate, ColaboratorsMainFont, ColaboratorsName, ColaboratorsTitle } from "./styles";
+import { 
+  ColaboratorsEmail, 
+  ColaboratorsFont, 
+  ColaboratorsIncialDate, 
+  ColaboratorsMainFont, 
+  ColaboratorsName, 
+  ColaboratorsTitle,
+  CollaboratorsActionWrapper
+} from "./styles";
 
 
 function Colaborators() {
@@ -30,12 +37,12 @@ function Colaborators() {
   return (
     <AppWrapper title="Colaboradores">
 
-      <TaskListTools>
+      <CollaboratorsActionWrapper>
         <GradientActionButton onClick={onAddColaboratorsHandler}>
           <PlusCircle size={32} color="white" />
           Adicionar
         </GradientActionButton>
-      </TaskListTools>
+      </CollaboratorsActionWrapper>
 
       <ColaboratorsTitle>
         <ColaboratorsName>

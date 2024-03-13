@@ -3,6 +3,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 import { colors } from './theme';
+import { sizes } from './sizes';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -66,5 +67,18 @@ export const components = {
     &:hover {
       opacity: .8;
     }
-  `
+  `,
+
+  ActionWrapper: styled.section`
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.4rem;
+
+  @media (min-width: ${sizes.laptop}) {
+    & > button {
+      align-self: flex-end;
+      height: 4rem;
+    }
+  }
+`
 };
