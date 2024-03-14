@@ -52,3 +52,14 @@ export const TaskListGroup = styled.main`
 `;
 
 export const TaskListTools = components.ActionWrapper;
+
+
+export const TaskTable = styled.table``;
+
+export const TaskTableHeader = styled.thead``;
+
+export const TaskTableBody = styled.tbody``;
+
+export const TaskTableRow = styled.tr``;
+
+export const TaskTableCell = styled.td``;

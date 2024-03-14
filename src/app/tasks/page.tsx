@@ -20,7 +20,7 @@ import { colors } from '@/global/theme';
 import {
   SearchContainer,
   SearchFieldsGroup,
-  TaskListGroup, TaskListTools
+  TaskListGroup, TaskListTools, TaskTable, TaskTableCell, TaskTableHeader, TaskTableRow
 } from './styles';
 
 function Tasks() {
@@ -68,6 +68,24 @@ function Tasks() {
           Adicionar
         </GradientActionButton>
       </TaskListTools>
+
+      <TaskTable>
+        <TaskTableHeader>
+          <TaskTableRow>
+            <TaskTableCell>
+              <Clock size={24} /> Pendentes
+            </TaskTableCell>
+
+            <TaskTableCell>
+              <Zap size={24} /> Ativas
+            </TaskTableCell>
+
+            <TaskTableCell>
+              <CheckCircle size={24} /> Concluídas
+            </TaskTableCell>
+          </TaskTableRow>
+        </TaskTableHeader>
+      </TaskTable>
 
       <TaskListGroup>
         <TaskList
