@@ -8,4 +8,4 @@ services:
     volumes:
       - ./:/app
     env_file: .env
-    command: yarn dev
+    command: sh -c "yarn && yarn dev"
