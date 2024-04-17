@@ -3,6 +3,7 @@
 import { sizes } from "@/global/sizes";
 import { colors } from "@/global/theme";
 import styled from "styled-components";
+import {SizeButtonProps} from "@/app/settings/page";
 
 export const Container = styled.div`
   padding: 0px;
@@ -95,7 +96,7 @@ export const SizeSelectorContainer = styled.div`
   border-radius: 15px;
 `;
 
-export const SizeButton = styled.button`
+export const SizeButton = styled.button<SizeButtonProps>`
   padding: 10px 20px;
   font-size: 16px;
   display: flex;

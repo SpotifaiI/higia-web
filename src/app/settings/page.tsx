@@ -27,6 +27,11 @@ interface SizeSelectorProps {
   onSelect: (size: string) => void;
 }
 
+export interface SizeButtonProps {
+  selected: boolean;
+  onClickCapture: () => void
+}
+
 function Settings() {
   const [isEnabled, setIsEnabled] = useState(false);
   const [selectedSize, setSelectedSize] = useState(false);
@@ -63,11 +68,11 @@ function Settings() {
         <MapButtons>
           <SizeButtonDescription>Tamanho dos ícones</SizeButtonDescription>
           <SizeSelectorContainer>
-            <SizeButton onClickCapture={() => {}}>Pequeno</SizeButton>
-            <SizeButton onClickCapture={() => {}}>Médio</SizeButton>
-            <SizeButton onClickCapture={() => {}}>Grande</SizeButton>
+            <SizeButton selected={false} onClickCapture={() => {}}>Pequeno</SizeButton>
+            <SizeButton selected={true} onClickCapture={() => {}}>Médio</SizeButton>
+            <SizeButton selected={false} onClickCapture={() => {}}>Grande</SizeButton>
           </SizeSelectorContainer>
-        </MapButtons> 
+        </MapButtons>
       </ContainerMiddle>
     </AppWrapper>
   );
