@@ -2,10 +2,13 @@ version: "3"
 
 services:
   app:
-    build: .
+    image: node:20-alpine
+    container_name: higia-web
     ports:
-      - ${APP_PORT}:3000
+      - ${APP_PORT}:8080
+    working_dir: /app
     volumes:
       - ./:/app
     env_file: .env
     command: sh -c "yarn && yarn dev"
+    tty: true
