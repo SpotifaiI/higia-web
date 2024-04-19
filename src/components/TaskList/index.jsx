@@ -1,3 +1,4 @@
+import { TaskListItem } from '../TaskListItem/index.jsx';
 import {
   TaskListContainer,
   TaskListHeader,
@@ -5,7 +6,20 @@ import {
   TaskListTitle,
 } from './styles.js';
 
+/**
+ * @param {{
+ *    icon: import('react-feather').Icon,
+ *    title: string,
+ *    items: import('../../models/TaskListItem.js').TaskListItem[]
+ * }} props
+ *
+ * @returns {JSX.Element}
+ *
+ * @constructor
+ */
 export function TaskList(props) {
+  const { title, icon: TitleIcon, items } = props;
+
   return (
     <TaskListContainer>
       <TaskListHeader>
@@ -20,9 +34,11 @@ export function TaskList(props) {
         {items.map(({ distanceInKm, person, title }, index) => (
           <TaskListItem
             key={index}
-            title={title}
-            distanceInKm={distanceInKm}
-            person={person}
+            info={{
+              title,
+              distanceInKm,
+              person
+            }}
           />
         ))}
       </TaskListTable>
