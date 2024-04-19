@@ -18,7 +18,6 @@ export function NavigationBar() {
           <LogoImage
             src="/assets/images/higia-accent.png"
             alt="Logo"
-            fill={true}
           />
         </ImageContainer>
       </Link>
