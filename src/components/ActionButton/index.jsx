@@ -5,17 +5,22 @@ import { MainButton } from './styles.js';
  *    label: string,
  *    icon: import('react-feather').Icon
  * } & import('react').ButtonHTMLAttributes<HTMLButtonElement>} props
+ *
+ * @returns {JSX.Element}
+ *
  * @constructor
  */
 export function ActionButton(props) {
   const { label, icon: Icon } = props;
 
-  <MainButton {...props}>
-    {
-      (Icon)
-        ? <Icon />
-        : null
-    }
-    {label}
-  </MainButton>
+  return (
+    <MainButton {...props}>
+      {
+        (Icon)
+          ? <Icon />
+          : null
+      }
+      {label}
+    </MainButton>
+  );
 }
