@@ -31,14 +31,10 @@ export function TaskList(props) {
       </TaskListHeader>
 
       <TaskListTable>
-        {items.map(({ distanceInKm, person, title }, index) => (
+        {items.map((taskListItem, index) => (
           <TaskListItem
             key={index}
-            info={{
-              title,
-              distanceInKm,
-              person
-            }}
+            info={taskListItem}
           />
         ))}
       </TaskListTable>
