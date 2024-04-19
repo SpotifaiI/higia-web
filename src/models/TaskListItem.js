@@ -1,14 +1,14 @@
 export class TaskListItem {
   /**
-   * @var {string}
+   * @type {string}
    */
   title;
   /**
-   * @var {string}
+   * @type {string}
    */
   person;
   /**
-   * @var {number}
+   * @type {number}
    */
   distanceInKm;
 

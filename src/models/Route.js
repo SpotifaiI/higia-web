@@ -1,10 +1,10 @@
 export class Route {
   /**
-   * @var {string} path
+   * @type {string} path
    */
   path;
   /**
-   * @var {Icon} Icon
+   * @type {Icon} Icon
    */
   Icon;
 
