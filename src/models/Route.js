@@ -10,7 +10,7 @@ export class Route {
 
   /**
    * @param {string} path
-   * @param {Icon} Icon
+   * @param {import('react-feather').Icon} Icon
    */
   constructor(path, Icon) {
     this.path = path;
