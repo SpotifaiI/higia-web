@@ -17,7 +17,7 @@ import {
  * @constructor
  */
 export function StatsCard(props) {
-  const { label, icon, value } = props;
+  const { label, icon: CardIcon, value } = props;
   const statisticIconSize = 56;
 
   return (
