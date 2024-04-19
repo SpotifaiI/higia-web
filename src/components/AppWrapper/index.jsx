@@ -1,5 +1,5 @@
-import { BackLink } from '../BackLink/index.jsx';
-import { NavigationBar } from '../NavigationBar/index.jsx';
+import { BackLink } from '../BackLink';
+import { NavigationBar } from '../NavigationBar';
 import {
   Container,
   Content,
@@ -15,7 +15,9 @@ import {
  *   title: string,
  *   children: JSX.Element
  * }} props
+ *
  * @returns {JSX.Element}
+ *
  * @constructor
  */
 export function AppWrapper(props) {
