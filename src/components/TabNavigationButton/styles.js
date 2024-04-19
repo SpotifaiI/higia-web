@@ -19,7 +19,7 @@ export const NavigationButton = styled.a`
   transition: .3s;
   border-radius: 50%;
   ${
-    ({ isSelected }) => isSelected
+    ({ selected }) => selected
       ? activeButtonStyles
       : standardButtonStyles
   }

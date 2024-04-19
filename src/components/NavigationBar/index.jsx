@@ -25,9 +25,9 @@ export function NavigationBar() {
         {routes.map(({ path, Icon }, index) => (
           <TabNavigationButton
             href={path}
-            Icon={Icon}
+            icon={Icon}
             key={index}
-            isSelected={path === '/'}
+            selected={path === '/'}
           />
         ))}
       </ButtonsContainer>

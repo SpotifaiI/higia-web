@@ -1,8 +1,9 @@
+import { NavigationButton } from './styles.js';
+
 /**
  * @param {{
- *   isSelected: boolean,
- *   Icon: import('react-feather').Icon,
- *   key: number,
+ *   selected: boolean,
+ *   icon: import('react-feather').Icon,
  *   href: string
  * }} props
  *
@@ -12,12 +13,16 @@
  */
 export function TabNavigationButton(props) {
   const buttonSize = 32;
-  const { isSelected, Icon: ButtonIcon } = props;
+  const {
+    selected,
+    icon: ButtonIcon,
+    href,
+  } = props;
 
   return (
     <NavigationButton
-      isSelected={isSelected}
-      {...props}
+      selected={selected}
+      href={href}
     >
       <ButtonIcon size={buttonSize} />
     </NavigationButton>

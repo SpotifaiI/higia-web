@@ -39,6 +39,8 @@ export const Navigation = styled.nav`
 export const LogoImage = styled.img`
   margin-left: .8rem;
   margin-top: 0;
+  width: 4.8rem;
+  height: 4.8rem;
 
   @media (min-width: ${sizes.laptop}) {
     margin-left: 0;

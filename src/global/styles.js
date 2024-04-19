@@ -5,6 +5,7 @@ import { sizes } from './sizes';
 
 export const GlobalStyles = createGlobalStyle`
   :root {
+    --font-poppins: "Poppins", sans-serif;
     --color-main-1: #37FC6E;
     --color-main-light-1: #ACF2C0;
     --color-main-2: #5A81FA;
@@ -32,8 +33,8 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 16px;
   }
 
-  input, button, textarea {
-    font-family: Arial;
+  body, input, button, textarea {
+    font-family: var(--font-poppins);
   }
 
   a {
