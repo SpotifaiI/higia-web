@@ -1,8 +1,7 @@
-import { AppWrapper } from './components/AppWrapper/index.jsx'
+import { Home } from './screens/Home/index.jsx';
 
 export default function App() {
   return (
-    <AppWrapper title="Informações Gerais">
-    </AppWrapper>
+    <Home />
   )
 }
