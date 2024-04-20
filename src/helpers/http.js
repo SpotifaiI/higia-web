@@ -18,7 +18,7 @@ export class Http {
    * @param {string} resource
    */
   constructor(resource) {
-    this.port = process.env.SERVER_PORT;
+    this.port = 3000;
 
     this.domain = 'http://localhost';
 
