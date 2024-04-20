@@ -13,7 +13,7 @@ import {
   TaskFormFooterAlign,
 } from './styles.js';
 
-export function AddCollaborator() {
+export function AddCollaborators() {
   const[nome, setNome] = useState("");
   const[dtnascimento, setNascimanto] = useState("");
   const[email, setEmail] = useState("");
