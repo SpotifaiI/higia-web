@@ -6,8 +6,6 @@ import {
 import { TaskMap } from '../../components/TaskMap/index.jsx';
 import { SearchContainer, SearchFieldsGroup } from './styles.js';
 
-import 'leaflet/dist/leaflet.css';
-
 export function TasksMap() {
   return (
     <AppWrapper title="Tarefas">

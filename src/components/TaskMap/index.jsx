@@ -1,5 +1,8 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
+
 import { TaskMapContainer } from './styles.js';
+
+import 'leaflet/dist/leaflet.css';
 
 export function TaskMap() {
   return (
