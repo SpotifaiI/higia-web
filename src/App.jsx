@@ -1,7 +1,7 @@
-import { Home } from './screens/Home/index.jsx';
+import { Login } from './screens/Login/index.jsx';
 
 export default function App() {
   return (
-    <Home />
+    <Login />
   )
 }
