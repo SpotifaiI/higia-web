@@ -1,7 +1,7 @@
-import { Settings } from './screens/Settings/index.jsx';
+import { TasksMap } from './screens/TasksMap/index.jsx';
 
 export default function App() {
   return (
-    <Settings />
+    <TasksMap />
   )
 }
