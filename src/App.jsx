@@ -1,7 +1,7 @@
-import { TasksMap } from './screens/TasksMap/index.jsx';
+import { Tasks } from './screens/Tasks/index.jsx';
 
 export default function App() {
   return (
-    <TasksMap />
+    <Tasks />
   )
 }
