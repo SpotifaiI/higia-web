@@ -1,7 +1,7 @@
-import { Login } from './screens/Login/index.jsx';
+import { Profile } from './screens/Profile/index.jsx';
 
 export default function App() {
   return (
-    <Login />
+    <Profile />
   )
 }
