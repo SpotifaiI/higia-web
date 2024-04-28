@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import Switch from 'react-switch';
 
 import {
   AntDesignWrapper,
+  Container,
   ContainerMiddle,
   MapButtonDescription,
   MapButtons,
-  MapButtonText, SizeButton,
+  MapButtonText,
+  SizeButton,
   SizeButtonDescription,
   SizeSelectorContainer,
   SwitcherButton,
@@ -13,11 +16,10 @@ import {
   TasksText,
 } from './styles.js';
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
-import { Container } from '../Login/styles.js';
+import { colors } from '../../global/theme.js';
 
 export function Settings() {
   const [isEnabled, setIsEnabled] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(false);
 
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 

@@ -1,7 +1,7 @@
-import { Profile } from './screens/Profile/index.jsx';
+import { Settings } from './screens/Settings/index.jsx';
 
 export default function App() {
   return (
-    <Profile />
+    <Settings />
   )
 }
