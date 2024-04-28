@@ -15,21 +15,24 @@ import {
 import {
   GradientActionButton
 } from '../../components/GradientActionButton/index.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export function Collaborators() {
   // const router = useRouter();
   const [collaborators, setCollaborators] = useState([]);
 
+  const navigation = useNavigate();
+
   function onAddColaboratorsHandler() {
-    // router.push('/colaborators/register');
+    navigation('/collaborators/register');
   }
 
   useEffect(() => {
     (async () => {
-      const collaboratorsApi = new CollaboratorsAPI();
+      /*const collaboratorsApi = new CollaboratorsAPI();
       const collaboratorsList = await collaboratorsApi.getCollaborators();
 
-      setCollaborators(collaboratorsList);
+      setCollaborators(collaboratorsList);*/
     })();
   }, []);
 

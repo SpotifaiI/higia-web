@@ -19,11 +19,14 @@ import {
   TaskTableRow,
 } from './styles.js';
 import { TaskListItem } from '../../models/TaskListItem.js';
+import { useNavigate } from 'react-router-dom';
 
 export function Tasks() {
   const [pendingTasks, setPendingTasks] = useState([]);
   const [activeTasks, setActiveTasks] = useState([]);
   const [concludedTasks, setConcludedTasks] = useState([]);
+
+  const navigation = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -37,7 +40,7 @@ export function Tasks() {
   }, []);
 
   function onAddTaskHandler() {
-    // router.push('/tasks/register');
+     navigation('/tasks/register');
   }
 
   return (
@@ -63,6 +66,24 @@ export function Tasks() {
           Adicionar
         </GradientActionButton>
       </TaskListTools>
+
+      <TaskTable>
+        <TaskTableHeader>
+          <TaskTableRow>
+            <TaskTableCell>
+              <Clock size={24} /> Pendentes
+            </TaskTableCell>
+
+            <TaskTableCell>
+              <Zap size={24} /> Ativas
+            </TaskTableCell>
+
+            <TaskTableCell>
+              <CheckCircle size={24} /> Concluídas
+            </TaskTableCell>
+          </TaskTableRow>
+        </TaskTableHeader>
+      </TaskTable>
 
       <TaskListGroup>
         <TaskList

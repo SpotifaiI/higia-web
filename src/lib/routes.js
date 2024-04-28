@@ -13,7 +13,7 @@ export const routes = [
   new Route('/', Home),
   new Route('/tasks', Award),
   new Route('/tasks-map', MapPin),
-  new Route('/colaborators', Users),
+  new Route('/collaborators', Users),
   new Route('/profile', User),
   new Route('/settings', Settings)
 ];

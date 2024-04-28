@@ -24,7 +24,7 @@ export function TaskListItem(props) {
   return (
     <TaskListRow>
       <TaskListDataInfoContainer>
-        <TaskListDataInfoTitle href="/tasks">
+        <TaskListDataInfoTitle to={`/tasks/update/${title}`}>
           {title}
         </TaskListDataInfoTitle>
         <TaskListDataInfoDistance>

@@ -22,7 +22,7 @@ export function TabNavigationButton(props) {
   return (
     <NavigationButton
       selected={selected}
-      href={href}
+      to={href}
     >
       <ButtonIcon size={buttonSize} />
     </NavigationButton>

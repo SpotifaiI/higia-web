@@ -29,7 +29,7 @@ export function AppWrapper(props) {
         <MainTitleContainer>
           {
             (backTo)
-              ? (<BackLink href={backTo} />)
+              ? (<BackLink to={backTo} />)
               : null
           }
           <TitleTextContainer>
@@ -41,7 +41,7 @@ export function AppWrapper(props) {
         {children}
       </Content>
 
-      <NavigationBar/>
+      <NavigationBar />
     </Container>
   );
 }

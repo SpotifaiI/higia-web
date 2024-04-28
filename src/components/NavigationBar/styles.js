@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Link as RouteLink } from 'react-router-dom';
 
 import { sizes } from "../../global/sizes";
 
-export const Link = styled.a``;
+export const Link = styled(RouteLink)``;
 
 export const Navigation = styled.nav`
   background-color: var(--color-white);

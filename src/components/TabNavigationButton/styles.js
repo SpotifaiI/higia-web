@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { css } from '../../global/styles.js';
 
@@ -10,7 +11,7 @@ const standardButtonStyles = `
   color: var(--color-dark);
 `;
 
-export const NavigationButton = styled.a`
+export const NavigationButton = styled(Link)`
   width: 3.2rem;
   height: 3.2rem;
   display: flex;

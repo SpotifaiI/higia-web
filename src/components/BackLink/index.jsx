@@ -6,7 +6,7 @@ import {
 } from './styles';
 
 /**
- * @param {import('react').AnchorHTMLAttributes<HTMLAnchorElement>} props
+ * @param {import('react-router-dom').LinkProps} props
  *
  * @returns {JSX.Element}
  *

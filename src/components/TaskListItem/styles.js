@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { colors } from '../../global/theme.js';
+import { Link } from 'react-router-dom';
 
 export const TaskListRow = styled.div`
   padding: 1.2rem 0;
@@ -19,7 +20,7 @@ export const TaskListDataInfoContainer = styled.div`
   gap: .4rem;
 `;
 
-export const TaskListDataInfoTitle = styled.a`
+export const TaskListDataInfoTitle = styled(Link)`
   text-decoration: underline;
   font-size: 1.2rem;
   line-height: 1.6rem;

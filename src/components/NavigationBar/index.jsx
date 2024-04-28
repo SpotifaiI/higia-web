@@ -9,11 +9,12 @@ import {
 
 import { routes } from '../../lib/routes.js';
 import { TabNavigationButton } from '../TabNavigationButton/index.jsx';
+import { useLocation } from 'react-router-dom';
 
 export function NavigationBar() {
   return (
     <Navigation>
-      <Link href={'/'}>
+      <Link to={'/'}>
         <ImageContainer>
           <LogoImage
             src="/assets/images/higia-accent.png"
@@ -27,7 +28,7 @@ export function NavigationBar() {
             href={path}
             icon={Icon}
             key={index}
-            selected={path === '/'}
+            selected={path === useLocation().pathname}
           />
         ))}
       </ButtonsContainer>

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { colors } from '../../global/theme.js';
 
-export const BackLinkButton = styled.a`
+export const BackLinkButton = styled(Link)`
   display: flex;
   align-items: center;
   gap: .4rem;
