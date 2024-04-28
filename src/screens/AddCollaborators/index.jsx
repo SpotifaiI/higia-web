@@ -20,7 +20,7 @@ export function AddCollaborators() {
   const[celular, setCelular] = useState("");
 
   return (
-    <AppWrapper backTo="/colaborators" title="Cadastrar Colaborador">
+    <AppWrapper backTo="/collaborators" title="Cadastrar Colaborador">
       <StatisticContainerListMin>
         <FormFieldInput
           label='Nome'

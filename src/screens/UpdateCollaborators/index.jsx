@@ -14,7 +14,7 @@ import {
 
 export function UpdateCollaborators() {
   return (
-    <AppWrapper backTo="/colaborators" title="Editar Colaborador">
+    <AppWrapper backTo="/collaborators" title="Editar Colaborador">
       <StatisticContainerListMin>
         <FormFieldInput
           label='Nome'
