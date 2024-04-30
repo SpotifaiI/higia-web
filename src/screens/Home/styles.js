@@ -53,3 +53,28 @@ export const TaskStatsDescription = styled.span`
   font-weight: 500;
   color: ${colors.white};
 `;
+
+export const PendingTasksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: .8rem 0;
+`;
+
+export const PendingTasksSubtitle = styled.h4`
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+`;
+
+export const PendingTasksList =  styled.div``;
+
+export const PendingTasksDate = styled.h6``;
+
+export const PendingTaskItem = styled.div``;
+
+export const PendingTaskItemTitle = styled.span``;
+
+export const PendingTaskItemTimeContainer = styled.div``;
+
+export const PendingTaskItemTimeIcon = styled.span``;
+
+export const PendingTaskItemTimeText = styled.span``;
