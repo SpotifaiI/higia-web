@@ -4,7 +4,7 @@ import {
   GradientActionButton
 } from '../../components/GradientActionButton/index.jsx';
 import { TaskMap } from '../../components/TaskMap/index.jsx';
-import { SearchContainer, SearchFieldsGroup } from './styles.js';
+import { MapBox, SearchContainer, SearchFieldsGroup } from './styles.js';
 
 export function TasksMap() {
   return (
@@ -18,7 +18,9 @@ export function TasksMap() {
         <GradientActionButton>Buscar</GradientActionButton>
       </SearchContainer>
 
-      <TaskMap />
+      <MapBox>
+        <TaskMap />
+      </MapBox>
     </AppWrapper>
   );
 }

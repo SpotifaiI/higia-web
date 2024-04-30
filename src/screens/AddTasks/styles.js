@@ -61,3 +61,8 @@ export const TaskFormFooter = styled.footer`
   display: flex;
   justify-content: end;
 `;
+
+export const MapBox = styled.aside`
+  width: 100%;
+  height: 40vh
+`;
