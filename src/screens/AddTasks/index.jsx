@@ -7,6 +7,7 @@ import {
   GradientActionButton
 } from '../../components/GradientActionButton/index.jsx';
 import {
+  MapBox,
   TaskForm,
   TaskFormContainer,
   TaskFormFooter,
@@ -44,7 +45,9 @@ export function AddTasks() {
           </TaskFormRowLocation>
         </TaskForm>
 
-        <TaskMap />
+        <MapBox>
+          <TaskMap />
+        </MapBox>
 
         <TaskFormFooter>
           <GradientActionButton>

@@ -12,8 +12,8 @@ export const SearchContainer = styled.div`
   border-radius: 1.6rem;
   margin-bottom: 1.8rem;
 
-    @media (min-width: ${sizes.laptop}) {
-      flex-direction: row;
+  @media (min-width: ${sizes.laptop}) {
+    flex-direction: row;
 
     & > button {
       align-self: flex-end;
@@ -36,8 +36,16 @@ export const SearchFieldsGroup = styled.section`
     }
   }
 
-    @media (min-width: ${sizes.laptop}) {
-      width: 100%;
-    }
+  @media (min-width: ${sizes.laptop}) {
+    width: 100%;
+  }
+`;
 
+export const MapBox = styled.aside`
+  width: 100%;
+  height: 80vh;
+
+  @media (min-width: ${sizes.laptop}) {
+    height: 48vh;
+  }
 `;
