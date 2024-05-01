@@ -9,7 +9,24 @@ import pendingIcon from '/assets/map/pending.svg';
 import activeIcon from '/assets/map/active.svg';
 import finishedIcon from '/assets/map/finished.svg';
 
-export function TaskMap() {
+/**
+ * @param {{
+ *  tasks: {
+ *     date: string,
+ *     items: {
+ *       title: string,
+ *       time: string,
+ *       id: number,
+ *       position: number[]
+ *     }[]
+ *   }[]
+ * }} props
+ * @returns {JSX.Element}
+ * @constructor
+ */
+export function TaskMap(props) {
+  const { tasks } = props;
+
   const pendingMapIcon = buildMapIcon(pendingIcon)
   const activeMapIcon = buildMapIcon(activeIcon)
   const finishedMapIcon = buildMapIcon(finishedIcon);
@@ -61,21 +78,28 @@ export function TaskMap() {
           noWrap={true}
         />
 
-        <Marker icon={pendingMapIcon} position={[-26.3045, -48.8489]}>
-          <Popup>
-            <Link to="tasks/register">show demais</Link>
-          </Popup>
-        </Marker>
-        <Marker icon={activeMapIcon} position={[-26.3026, -48.8461]}>
-          <Popup>
-            <Link to="tasks/register">show demais</Link>
-          </Popup>
-        </Marker>
-        <Marker icon={finishedMapIcon} position={[-26.3007, -48.8413]}>
-          <Popup>
-            <Link to="tasks/register">show demais</Link>
-          </Popup>
-        </Marker>
+        {tasks.map((taskToShow, taskIndex) => {
+          const markerKey = `task_map_marker_${taskIndex}`;
+
+          return (
+            taskToShow.items.map((item, itemIndex) => {
+              const itemKey = `${markerKey}_${itemIndex}`;
+
+              return (
+                <Marker
+                  icon={pendingMapIcon}
+                  position={item.position}
+                  key={itemKey}>
+                  <Popup>
+                    <Link to={`tasks/register/${item.id}`}>
+                      {item.title}
+                    </Link>
+                  </Popup>
+                </Marker>
+              );
+            })
+          );
+        })}
       </MapContainer>
     </TaskMapContainer>
   );

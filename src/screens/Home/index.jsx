@@ -73,7 +73,8 @@ export function Home() {
    *     items: {
    *       title: string,
    *       time: string,
-   *       id: number
+   *       id: number,
+   *       position: number[]
    *     }[]
    *   }[]
    * }>}
@@ -88,7 +89,8 @@ export function Home() {
               {
                 id: 1,
                 title: 'Avenida JK',
-                time: '00:32'
+                time: '00:32',
+                position: [-26.3007, -48.8413]
               }
             ]
           },
@@ -98,22 +100,26 @@ export function Home() {
               {
                 id: 2,
                 title: 'Avenida JK',
-                time: '00:32'
+                time: '00:32',
+                position: [-26.3045, -48.8489]
               },
               {
                 id: 3,
                 title: 'Avenida JK',
-                time: '00:32'
+                time: '00:32',
+                position: [-26.3026, -48.8461]
               },
               {
                 id: 4,
                 title: 'Avenida JK',
-                time: '00:32'
+                time: '00:32',
+                position: [-26.3045, -48.8123]
               },
               {
                 id: 5,
                 title: 'Avenida JK',
-                time: '00:32'
+                time: '00:32',
+                position: [-26.3012, -48.8498]
               }
             ]
           },
@@ -123,12 +129,14 @@ export function Home() {
               {
                 id: 6,
                 title: 'Avenida JK',
-                time: '00:32'
+                time: '00:32',
+                position: [-26.3045, -48.8489]
               },
               {
                 id: 7,
                 title: 'Avenida JK',
-                time: '00:32'
+                time: '00:32',
+                position: [-26.3045, -48.8754]
               }
             ]
           }
@@ -219,7 +227,7 @@ export function Home() {
         </DataList>
 
         <MapBox>
-          <TaskMap />
+          <TaskMap tasks={adminPendingTasks} />
         </MapBox>
       </StatisticContainer>
     </AppWrapper>
