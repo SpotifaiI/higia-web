@@ -174,9 +174,9 @@ export function Home() {
           <FormFieldInput label="Mostrar tarefas desde" type="date" />
 
           <TaskStatsContainer>
-            <TaskStatsNumber>{pendingTasksCount}</TaskStatsNumber>
+            <TaskStatsNumber>{finishedTasksCount}</TaskStatsNumber>
             <TaskStatsDescription>
-              de {finishedTasksCount} foram concluídas
+              de {pendingTasksCount} foram concluídas
             </TaskStatsDescription>
           </TaskStatsContainer>
 
