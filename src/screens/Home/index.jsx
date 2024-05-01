@@ -9,23 +9,162 @@ import {
   MapBox,
   PendingTaskItem,
   PendingTaskItemTimeContainer,
-  PendingTaskItemTimeIcon, PendingTaskItemTimeText,
+  PendingTaskItemTimeIcon,
+  PendingTaskItemTimeText,
   PendingTaskItemTitle,
   PendingTasksContainer,
   PendingTasksDate,
-  PendingTasksList, PendingTasksListItem,
+  PendingTasksList,
+  PendingTasksListItem,
   PendingTasksSubtitle,
   StatisticContainer,
   TaskStatsContainer,
   TaskStatsDescription,
   TaskStatsNumber,
 } from './styles.js';
+import { useEffect, useState } from 'react';
 
 export function Home() {
   const navigate = useNavigate();
 
-  function onHandlerTaskItem() {
-    navigate('tasks/register');
+  const [finishedTasksCount, setFinishedTasksCount] = useState(0);
+  const [pendingTasksCount, setPendingTasksCount] = useState(0);
+  const [adminPendingTasks, setAdminPendingTasks] = useState([]);
+  const [collaboratorPendingTasks, setCollaboratorPendingTasks] = useState([]);
+
+  useEffect(() => {
+    load();
+  }, []);
+
+  async function load() {
+    loadCounting();
+    loadAdminTasks();
+  }
+
+  /**
+   * @returns {Promise<void>}
+   */
+  async function loadCounting() {
+    const { finished, pending } = await getTasksCount();
+
+    if (finished) {
+      setFinishedTasksCount(finished);
+    }
+    if (pending) {
+      setPendingTasksCount(pending);
+    }
+  }
+
+  /**
+   * @returns {Promise<void>}
+   */
+  async function loadAdminTasks() {
+    const { tasks } = await getAdminPendingTasks();
+
+    if (tasks) {
+      setAdminPendingTasks(tasks);
+    }
+  }
+
+  /**
+   * @returns {Promise<{
+   *   tasks: {
+   *     date: string,
+   *     items: {
+   *       title: string,
+   *       time: string,
+   *       id: number,
+   *       position: number[]
+   *     }[]
+   *   }[]
+   * }>}
+   */
+  async function getAdminPendingTasks() {
+    return new Promise((resolve) => {
+      resolve({
+        tasks: [
+          {
+            date: '19/08/2023',
+            items: [
+              {
+                id: 1,
+                title: 'Avenida JK',
+                time: '00:32',
+                position: [-26.3007, -48.8413]
+              }
+            ]
+          },
+          {
+            date: '20/08/2023',
+            items: [
+              {
+                id: 2,
+                title: 'Avenida JK',
+                time: '00:32',
+                position: [-26.3045, -48.8489]
+              },
+              {
+                id: 3,
+                title: 'Avenida JK',
+                time: '00:32',
+                position: [-26.3026, -48.8461]
+              },
+              {
+                id: 4,
+                title: 'Avenida JK',
+                time: '00:32',
+                position: [-26.3045, -48.8123]
+              },
+              {
+                id: 5,
+                title: 'Avenida JK',
+                time: '00:32',
+                position: [-26.3012, -48.8498]
+              }
+            ]
+          },
+          {
+            date: '21/08/2023',
+            items: [
+              {
+                id: 6,
+                title: 'Avenida JK',
+                time: '00:32',
+                position: [-26.3045, -48.8489]
+              },
+              {
+                id: 7,
+                title: 'Avenida JK',
+                time: '00:32',
+                position: [-26.3045, -48.8754]
+              }
+            ]
+          }
+        ]
+      });
+    });
+  }
+
+  /**
+   * @returns {Promise<{
+   *   pending: number,
+   *   finished: number
+   * }>}
+   */
+  async function getTasksCount() {
+    return new Promise((resolve) => {
+      resolve({
+        pending: 128,
+        finished: 67
+      });
+    });
+  }
+
+  /**
+   * @param {number} taskId
+   */
+  function onHandlerTaskItem(taskId) {
+    navigate(`tasks/register/${taskId}`);
   }
 
   return (
@@ -35,9 +174,9 @@ export function Home() {
           <FormFieldInput label="Mostrar tarefas desde" type="date" />
 
           <TaskStatsContainer>
-            <TaskStatsNumber>67</TaskStatsNumber>
+            <TaskStatsNumber>{finishedTasksCount}</TaskStatsNumber>
             <TaskStatsDescription>
-              de 128 foram concluídas
+              de {pendingTasksCount} foram concluídas
             </TaskStatsDescription>
           </TaskStatsContainer>
 
@@ -47,83 +186,48 @@ export function Home() {
             </PendingTasksSubtitle>
 
             <PendingTasksList>
-              <PendingTasksListItem>
-                <PendingTasksDate>
-                  19/08/2023
-                </PendingTasksDate>
+              {
+                adminPendingTasks.map((datails, parentIndex) => {
+                  const parentListKey = `admin_pending_tasks_${parentIndex}`;
 
-                <PendingTaskItem onClick={onHandlerTaskItem}>
-                  <PendingTaskItemTitle>
-                    Avenida JK
-                  </PendingTaskItemTitle>
+                  return (
+                    <PendingTasksListItem key={parentListKey}>
+                      <PendingTasksDate>
+                        {datails.date}
+                      </PendingTasksDate>
 
-                  <PendingTaskItemTimeContainer>
-                    <PendingTaskItemTimeIcon>
-                      <Clock size={16} />
-                    </PendingTaskItemTimeIcon>
-                    <PendingTaskItemTimeText>
-                      00:32
-                    </PendingTaskItemTimeText>
-                  </PendingTaskItemTimeContainer>
-                </PendingTaskItem>
-              </PendingTasksListItem>
+                      {datails.items.map((task, childKey) => {
+                        const childListKey = `${parentListKey}_${childKey}`;
 
-              <PendingTasksListItem>
-                <PendingTasksDate>
-                  19/08/2023
-                </PendingTasksDate>
+                        return (
+                          <PendingTaskItem
+                            onClick={() => onHandlerTaskItem(task.id)}
+                            key={childListKey}>
+                            <PendingTaskItemTitle>
+                              {task.title}
+                            </PendingTaskItemTitle>
 
-                <PendingTaskItem onClick={onHandlerTaskItem}>
-                  <PendingTaskItemTitle>
-                    Avenida JK
-                  </PendingTaskItemTitle>
-
-                  <PendingTaskItemTimeContainer>
-                    <PendingTaskItemTimeIcon>
-                      <Clock size={16} />
-                    </PendingTaskItemTimeIcon>
-                    <PendingTaskItemTimeText>
-                      00:32
-                    </PendingTaskItemTimeText>
-                  </PendingTaskItemTimeContainer>
-                </PendingTaskItem>
-
-                <PendingTaskItem onClick={onHandlerTaskItem}>
-                  <PendingTaskItemTitle>
-                    Avenida JK
-                  </PendingTaskItemTitle>
-
-                  <PendingTaskItemTimeContainer>
-                    <PendingTaskItemTimeIcon>
-                      <Clock size={16} />
-                    </PendingTaskItemTimeIcon>
-                    <PendingTaskItemTimeText>
-                      00:32
-                    </PendingTaskItemTimeText>
-                  </PendingTaskItemTimeContainer>
-                </PendingTaskItem>
-
-                <PendingTaskItem onClick={onHandlerTaskItem}>
-                  <PendingTaskItemTitle>
-                    Avenida JK
-                  </PendingTaskItemTitle>
-
-                  <PendingTaskItemTimeContainer>
-                    <PendingTaskItemTimeIcon>
-                      <Clock size={16} />
-                    </PendingTaskItemTimeIcon>
-                    <PendingTaskItemTimeText>
-                      00:32
-                    </PendingTaskItemTimeText>
-                  </PendingTaskItemTimeContainer>
-                </PendingTaskItem>
-              </PendingTasksListItem>
+                            <PendingTaskItemTimeContainer>
+                              <PendingTaskItemTimeIcon>
+                                <Clock size={16}/>
+                              </PendingTaskItemTimeIcon>
+                              <PendingTaskItemTimeText>
+                                {task.time}
+                              </PendingTaskItemTimeText>
+                            </PendingTaskItemTimeContainer>
+                          </PendingTaskItem>
+                        );
+                      })}
+                    </PendingTasksListItem>
+                  );
+                })
+              }
             </PendingTasksList>
           </PendingTasksContainer>
         </DataList>
 
         <MapBox>
-          <TaskMap />
+          <TaskMap tasks={adminPendingTasks} />
         </MapBox>
       </StatisticContainer>
     </AppWrapper>
