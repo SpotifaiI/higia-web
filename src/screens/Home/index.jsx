@@ -1,4 +1,5 @@
 import { Clock } from 'react-feather';
+import { useNavigate } from 'react-router-dom';
 
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
 import { TaskMap } from '../../components/TaskMap/index.jsx';
@@ -12,7 +13,7 @@ import {
   PendingTaskItemTitle,
   PendingTasksContainer,
   PendingTasksDate,
-  PendingTasksList,
+  PendingTasksList, PendingTasksListItem,
   PendingTasksSubtitle,
   StatisticContainer,
   TaskStatsContainer,
@@ -21,11 +22,17 @@ import {
 } from './styles.js';
 
 export function Home() {
+  const navigate = useNavigate();
+
+  function onHandlerTaskItem() {
+    navigate('tasks/register');
+  }
+
   return (
     <AppWrapper title="Informações Gerais">
       <StatisticContainer>
         <DataList>
-          <FormFieldInput placeholder="Desde..." type="date" />
+          <FormFieldInput label="Mostrar tarefas desde" type="date" />
 
           <TaskStatsContainer>
             <TaskStatsNumber>67</TaskStatsNumber>
@@ -40,24 +47,77 @@ export function Home() {
             </PendingTasksSubtitle>
 
             <PendingTasksList>
-              <PendingTasksDate>
-                19/08/2023
-              </PendingTasksDate>
+              <PendingTasksListItem>
+                <PendingTasksDate>
+                  19/08/2023
+                </PendingTasksDate>
 
-              <PendingTaskItem>
-                <PendingTaskItemTitle>
-                  Avenida JK
-                </PendingTaskItemTitle>
+                <PendingTaskItem onClick={onHandlerTaskItem}>
+                  <PendingTaskItemTitle>
+                    Avenida JK
+                  </PendingTaskItemTitle>
 
-                <PendingTaskItemTimeContainer>
-                  <PendingTaskItemTimeIcon>
-                    <Clock />
-                  </PendingTaskItemTimeIcon>
-                  <PendingTaskItemTimeText>
-                    00:32
-                  </PendingTaskItemTimeText>
-                </PendingTaskItemTimeContainer>
-              </PendingTaskItem>
+                  <PendingTaskItemTimeContainer>
+                    <PendingTaskItemTimeIcon>
+                      <Clock size={16} />
+                    </PendingTaskItemTimeIcon>
+                    <PendingTaskItemTimeText>
+                      00:32
+                    </PendingTaskItemTimeText>
+                  </PendingTaskItemTimeContainer>
+                </PendingTaskItem>
+              </PendingTasksListItem>
+
+              <PendingTasksListItem>
+                <PendingTasksDate>
+                  19/08/2023
+                </PendingTasksDate>
+
+                <PendingTaskItem onClick={onHandlerTaskItem}>
+                  <PendingTaskItemTitle>
+                    Avenida JK
+                  </PendingTaskItemTitle>
+
+                  <PendingTaskItemTimeContainer>
+                    <PendingTaskItemTimeIcon>
+                      <Clock size={16} />
+                    </PendingTaskItemTimeIcon>
+                    <PendingTaskItemTimeText>
+                      00:32
+                    </PendingTaskItemTimeText>
+                  </PendingTaskItemTimeContainer>
+                </PendingTaskItem>
+
+                <PendingTaskItem onClick={onHandlerTaskItem}>
+                  <PendingTaskItemTitle>
+                    Avenida JK
+                  </PendingTaskItemTitle>
+
+                  <PendingTaskItemTimeContainer>
+                    <PendingTaskItemTimeIcon>
+                      <Clock size={16} />
+                    </PendingTaskItemTimeIcon>
+                    <PendingTaskItemTimeText>
+                      00:32
+                    </PendingTaskItemTimeText>
+                  </PendingTaskItemTimeContainer>
+                </PendingTaskItem>
+
+                <PendingTaskItem onClick={onHandlerTaskItem}>
+                  <PendingTaskItemTitle>
+                    Avenida JK
+                  </PendingTaskItemTitle>
+
+                  <PendingTaskItemTimeContainer>
+                    <PendingTaskItemTimeIcon>
+                      <Clock size={16} />
+                    </PendingTaskItemTimeIcon>
+                    <PendingTaskItemTimeText>
+                      00:32
+                    </PendingTaskItemTimeText>
+                  </PendingTaskItemTimeContainer>
+                </PendingTaskItem>
+              </PendingTasksListItem>
             </PendingTasksList>
           </PendingTasksContainer>
         </DataList>
