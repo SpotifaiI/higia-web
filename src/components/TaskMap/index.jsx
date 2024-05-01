@@ -5,9 +5,9 @@ import { Icon as LeafletIcon } from 'leaflet';
 import { TaskMapContainer } from './styles.js';
 
 import 'leaflet/dist/leaflet.css';
-import pendingIcon from '../../../public/assets/map/pending.svg';
-import activeIcon from '../../../public/assets/map/active.svg';
-import finishedIcon from '../../../public/assets/map/finished.svg';
+import pendingIcon from '/assets/map/pending.svg';
+import activeIcon from '/assets/map/active.svg';
+import finishedIcon from '/assets/map/finished.svg';
 
 export function TaskMap() {
   const pendingMapIcon = buildMapIcon(pendingIcon)

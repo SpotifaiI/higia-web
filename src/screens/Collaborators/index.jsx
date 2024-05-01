@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { PlusCircle } from 'react-feather';
 
-import { CollaboratorsAPI } from '../../api/collaborators/collaborators.js';
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
 import {
   ColaboratorsEmail,

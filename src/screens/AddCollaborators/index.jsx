@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Save } from 'react-feather';
 
-import { CollaboratorsAPI } from '../../api/collaborators/collaborators.js';
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
 import { FormFieldInput } from '../../components/FormFieldInput/index.jsx';
 import {
