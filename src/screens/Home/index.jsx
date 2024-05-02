@@ -1,4 +1,4 @@
-import { Clock } from 'react-feather';
+import { Check, Clock, Pause, Play } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
@@ -8,12 +8,16 @@ import {
   DataList,
   MapBox,
   PendingTaskItem,
+  PendingTaskItemButton,
+  PendingTaskItemDetailsContainer,
+  PendingTaskItemDistance,
   PendingTaskItemTimeContainer,
   PendingTaskItemTimeIcon,
   PendingTaskItemTimeText,
-  PendingTaskItemTitle,
+  PendingTaskItemTitle, PendingTasksActionContainer,
   PendingTasksContainer,
   PendingTasksDate,
+  PendingTasksItemButtonContainer,
   PendingTasksList,
   PendingTasksListItem,
   PendingTasksSubtitle,
@@ -31,6 +35,7 @@ export function Home() {
   const [pendingTasksCount, setPendingTasksCount] = useState(0);
   const [adminPendingTasks, setAdminPendingTasks] = useState([]);
   const [collaboratorPendingTasks, setCollaboratorPendingTasks] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     load();
@@ -38,7 +43,12 @@ export function Home() {
 
   async function load() {
     loadCounting();
-    loadAdminTasks();
+
+    if (isAdmin) {
+      loadAdminTasks();
+    } else {
+      loadCollaboratorTasks();
+    }
   }
 
   /**
@@ -63,6 +73,17 @@ export function Home() {
 
     if (tasks) {
       setAdminPendingTasks(tasks);
+    }
+  }
+
+  /**
+   * @returns {Promise<void>}
+   */
+  async function loadCollaboratorTasks() {
+    const { tasks } = await getAdminPendingTasks();
+
+    if (tasks) {
+      setCollaboratorPendingTasks(tasks);
     }
   }
 
@@ -187,7 +208,11 @@ export function Home() {
 
             <PendingTasksList>
               {
-                adminPendingTasks.map((datails, parentIndex) => {
+                (
+                  isAdmin
+                    ? adminPendingTasks
+                    : collaboratorPendingTasks
+                ).map((datails, parentIndex) => {
                   const parentListKey = `admin_pending_tasks_${parentIndex}`;
 
                   return (
@@ -201,20 +226,42 @@ export function Home() {
 
                         return (
                           <PendingTaskItem
-                            onClick={() => onHandlerTaskItem(task.id)}
                             key={childListKey}>
-                            <PendingTaskItemTitle>
-                              {task.title}
-                            </PendingTaskItemTitle>
+                            <PendingTaskItemDetailsContainer>
+                              <PendingTaskItemTitle
+                                onClick={() => onHandlerTaskItem(task.id)}>
+                                {task.title}
+                              </PendingTaskItemTitle>
 
-                            <PendingTaskItemTimeContainer>
-                              <PendingTaskItemTimeIcon>
-                                <Clock size={16}/>
-                              </PendingTaskItemTimeIcon>
-                              <PendingTaskItemTimeText>
-                                {task.time}
-                              </PendingTaskItemTimeText>
-                            </PendingTaskItemTimeContainer>
+                              <PendingTaskItemDistance>
+                                5km
+                              </PendingTaskItemDistance>
+                            </PendingTaskItemDetailsContainer>
+
+                            <PendingTasksActionContainer>
+                              <PendingTaskItemTimeContainer>
+                                <PendingTaskItemTimeIcon>
+                                  <Clock size={16}/>
+                                </PendingTaskItemTimeIcon>
+                                <PendingTaskItemTimeText>
+                                  {task.time}
+                                </PendingTaskItemTimeText>
+                              </PendingTaskItemTimeContainer>
+
+                              <PendingTasksItemButtonContainer>
+                                <PendingTaskItemButton>
+                                  <Play />
+                                </PendingTaskItemButton>
+
+                                <PendingTaskItemButton>
+                                  <Pause />
+                                </PendingTaskItemButton>
+
+                                <PendingTaskItemButton>
+                                  <Check />
+                                </PendingTaskItemButton>
+                              </PendingTasksItemButtonContainer>
+                            </PendingTasksActionContainer>
                           </PendingTaskItem>
                         );
                       })}
