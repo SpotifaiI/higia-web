@@ -103,21 +103,43 @@ export const PendingTaskItem = styled.div`
   min-height: 4rem;
   background-color: ${colors.white};
   border-radius: .8rem;
-  cursor: pointer;
-  transition: .3s;
-
-  &:hover {
-    opacity: .8;
-  }
 
   & + & {
     margin-top: .8rem;
   }
 `;
 
-export const PendingTasksItemButtonContainer = styled.div``;
+export const PendingTasksActionContainer = styled.section`
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  height: 100%;
+`;
 
-export const PendingTaskItemButton = styled.button``;
+export const PendingTasksItemButtonContainer = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+`;
+
+export const PendingTaskItemButton = styled.button`
+  display: flex;
+  height: 2.4rem;
+  width: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  color: ${colors.white};
+  background: ${css.linearGradient};
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    opacity: .6;
+  }
+`;
 
 export const PendingTaskItemDetailsContainer = styled.div`
   display: flex;
@@ -136,6 +158,12 @@ export const PendingTaskItemTitle = styled.span`
   line-height: 2.4rem;
   font-weight: 700;
   color: ${colors.darker};
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    color: ${colors.main2};
+  }
 `;
 
 export const PendingTaskItemTimeContainer = styled.div`

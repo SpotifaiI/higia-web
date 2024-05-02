@@ -1,4 +1,4 @@
-import { Clock } from 'react-feather';
+import { Check, Clock, Pause, Play } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
 
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
@@ -7,13 +7,17 @@ import { FormFieldInput } from '../../components/FormFieldInput/index.jsx';
 import {
   DataList,
   MapBox,
-  PendingTaskItem, PendingTaskItemDetailsContainer, PendingTaskItemDistance,
+  PendingTaskItem,
+  PendingTaskItemButton,
+  PendingTaskItemDetailsContainer,
+  PendingTaskItemDistance,
   PendingTaskItemTimeContainer,
   PendingTaskItemTimeIcon,
   PendingTaskItemTimeText,
-  PendingTaskItemTitle,
+  PendingTaskItemTitle, PendingTasksActionContainer,
   PendingTasksContainer,
   PendingTasksDate,
+  PendingTasksItemButtonContainer,
   PendingTasksList,
   PendingTasksListItem,
   PendingTasksSubtitle,
@@ -222,10 +226,10 @@ export function Home() {
 
                         return (
                           <PendingTaskItem
-                            onClick={() => onHandlerTaskItem(task.id)}
                             key={childListKey}>
                             <PendingTaskItemDetailsContainer>
-                              <PendingTaskItemTitle>
+                              <PendingTaskItemTitle
+                                onClick={() => onHandlerTaskItem(task.id)}>
                                 {task.title}
                               </PendingTaskItemTitle>
 
@@ -234,14 +238,30 @@ export function Home() {
                               </PendingTaskItemDistance>
                             </PendingTaskItemDetailsContainer>
 
-                            <PendingTaskItemTimeContainer>
-                              <PendingTaskItemTimeIcon>
-                                <Clock size={16}/>
-                              </PendingTaskItemTimeIcon>
-                              <PendingTaskItemTimeText>
-                                {task.time}
-                              </PendingTaskItemTimeText>
-                            </PendingTaskItemTimeContainer>
+                            <PendingTasksActionContainer>
+                              <PendingTaskItemTimeContainer>
+                                <PendingTaskItemTimeIcon>
+                                  <Clock size={16}/>
+                                </PendingTaskItemTimeIcon>
+                                <PendingTaskItemTimeText>
+                                  {task.time}
+                                </PendingTaskItemTimeText>
+                              </PendingTaskItemTimeContainer>
+
+                              <PendingTasksItemButtonContainer>
+                                <PendingTaskItemButton>
+                                  <Play />
+                                </PendingTaskItemButton>
+
+                                <PendingTaskItemButton>
+                                  <Pause />
+                                </PendingTaskItemButton>
+
+                                <PendingTaskItemButton>
+                                  <Check />
+                                </PendingTaskItemButton>
+                              </PendingTasksItemButtonContainer>
+                            </PendingTasksActionContainer>
                           </PendingTaskItem>
                         );
                       })}
