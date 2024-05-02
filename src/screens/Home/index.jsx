@@ -7,7 +7,7 @@ import { FormFieldInput } from '../../components/FormFieldInput/index.jsx';
 import {
   DataList,
   MapBox,
-  PendingTaskItem,
+  PendingTaskItem, PendingTaskItemDetailsContainer, PendingTaskItemDistance,
   PendingTaskItemTimeContainer,
   PendingTaskItemTimeIcon,
   PendingTaskItemTimeText,
@@ -31,6 +31,7 @@ export function Home() {
   const [pendingTasksCount, setPendingTasksCount] = useState(0);
   const [adminPendingTasks, setAdminPendingTasks] = useState([]);
   const [collaboratorPendingTasks, setCollaboratorPendingTasks] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     load();
@@ -38,7 +39,12 @@ export function Home() {
 
   async function load() {
     loadCounting();
-    loadAdminTasks();
+
+    if (isAdmin) {
+      loadAdminTasks();
+    } else {
+      loadCollaboratorTasks();
+    }
   }
 
   /**
@@ -63,6 +69,17 @@ export function Home() {
 
     if (tasks) {
       setAdminPendingTasks(tasks);
+    }
+  }
+
+  /**
+   * @returns {Promise<void>}
+   */
+  async function loadCollaboratorTasks() {
+    const { tasks } = await getAdminPendingTasks();
+
+    if (tasks) {
+      setCollaboratorPendingTasks(tasks);
     }
   }
 
@@ -187,7 +204,11 @@ export function Home() {
 
             <PendingTasksList>
               {
-                adminPendingTasks.map((datails, parentIndex) => {
+                (
+                  isAdmin
+                    ? adminPendingTasks
+                    : collaboratorPendingTasks
+                ).map((datails, parentIndex) => {
                   const parentListKey = `admin_pending_tasks_${parentIndex}`;
 
                   return (
@@ -203,9 +224,15 @@ export function Home() {
                           <PendingTaskItem
                             onClick={() => onHandlerTaskItem(task.id)}
                             key={childListKey}>
-                            <PendingTaskItemTitle>
-                              {task.title}
-                            </PendingTaskItemTitle>
+                            <PendingTaskItemDetailsContainer>
+                              <PendingTaskItemTitle>
+                                {task.title}
+                              </PendingTaskItemTitle>
+
+                              <PendingTaskItemDistance>
+                                5km
+                              </PendingTaskItemDistance>
+                            </PendingTaskItemDetailsContainer>
 
                             <PendingTaskItemTimeContainer>
                               <PendingTaskItemTimeIcon>
