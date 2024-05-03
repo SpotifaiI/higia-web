@@ -46,3 +46,13 @@ export const TaskListDataExtraInfo = styled.span`
   font-size: 1rem;
   line-height: 1.6rem;
 `;
+
+export const TaskPriorityIndicator =  styled.span``;
+
+export const TaskHighPriorityIndicator = styled(TaskPriorityIndicator)`
+    background-color: ${colors.p1};
+`;
+
+export const TaskMediumPriorityIndicator = styled(TaskPriorityIndicator)``;
+
+export const TaskLowPriorityIndicator = styled(TaskPriorityIndicator)``;

@@ -19,7 +19,7 @@ export function TasksMap() {
       </SearchContainer>
 
       <MapBox>
-        <TaskMap />
+        <TaskMap tasks={[]} />
       </MapBox>
     </AppWrapper>
   );
