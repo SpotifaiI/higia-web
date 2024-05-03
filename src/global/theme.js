@@ -9,7 +9,10 @@ export const colors = {
   lighter: '#F5F5F5',
   white: '#FBFBFB',
   black: '#101010',
-  danger: '#DC3545'
+  danger: '#DC3545',
+  p1: '#28A745',
+  p2: '#FFC107',
+  p3: '#DC3545'
 };
 
 export const gradients = {
