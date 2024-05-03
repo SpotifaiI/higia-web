@@ -38,11 +38,36 @@ export const TaskListDataInfoDistance = styled.span`
 export const TaskListDataExtraContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: .4rem;
+  gap: .8rem;
   color: ${colors.dark};
 `;
 
 export const TaskListDataExtraInfo = styled.span`
   font-size: 1rem;
   line-height: 1.6rem;
+`;
+
+export const TaskUserContainer = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+`;
+
+export const TaskPriorityIndicator =  styled.span`
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+`;
+
+export const TaskHighPriorityIndicator = styled(TaskPriorityIndicator)`
+  background-color: ${colors.p1};
+`;
+
+export const TaskMediumPriorityIndicator = styled(TaskPriorityIndicator)`
+  background-color: ${colors.p2};
+`;
+
+export const TaskLowPriorityIndicator = styled(TaskPriorityIndicator)`
+  background-color: ${colors.p3};
 `;

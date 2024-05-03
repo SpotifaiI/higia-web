@@ -1,12 +1,13 @@
 import { Users } from 'react-feather';
 
 import {
+  TaskHighPriorityIndicator,
   TaskListDataExtraContainer,
   TaskListDataExtraInfo,
   TaskListDataInfoContainer,
   TaskListDataInfoDistance,
   TaskListDataInfoTitle,
-  TaskListRow,
+  TaskListRow, TaskUserContainer,
 } from './styles.js';
 
 /**
@@ -33,11 +34,15 @@ export function TaskListItem(props) {
       </TaskListDataInfoContainer>
 
       <TaskListDataExtraContainer>
-        <Users size={20} />
+        <TaskHighPriorityIndicator />
 
-        <TaskListDataExtraInfo>
-          {person}
-        </TaskListDataExtraInfo>
+        <TaskUserContainer>
+          <Users size={20} />
+
+          <TaskListDataExtraInfo>
+            {person}
+          </TaskListDataExtraInfo>
+        </TaskUserContainer>
       </TaskListDataExtraContainer>
     </TaskListRow>
   );
