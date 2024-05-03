@@ -274,7 +274,7 @@ export function Home() {
         </DataList>
 
         <MapBox>
-          <TaskMap tasks={adminPendingTasks} />
+          <TaskMap tasks={isAdmin ? adminPendingTasks : collaboratorPendingTasks} />
         </MapBox>
       </StatisticContainer>
     </AppWrapper>
