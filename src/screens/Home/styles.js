@@ -103,10 +103,32 @@ export const PendingTaskItem = styled.div`
   min-height: 4rem;
   background-color: ${colors.white};
   border-radius: .8rem;
+  position: relative;
+  overflow: hidden;
 
   & + & {
     margin-top: .8rem;
   }
+`;
+
+export const PendingTaskItemPriorityBase = styled.span`
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: .2rem;
+  position: absolute;
+`;
+
+export const PendingTaskItemPriorityLow = styled(PendingTaskItemPriorityBase)`
+  background-color: ${colors.p1};
+`;
+
+export const PendingTaskItemPriorityMedium = styled(PendingTaskItemPriorityBase)`
+  background-color: ${colors.p2};
+`;
+
+export const PendingTaskItemPriorityHigh = styled(PendingTaskItemPriorityBase)`
+  background-color: ${colors.p3};
 `;
 
 export const PendingTasksActionContainer = styled.section`

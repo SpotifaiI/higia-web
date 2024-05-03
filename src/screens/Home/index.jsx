@@ -10,11 +10,12 @@ import {
   PendingTaskItem,
   PendingTaskItemButton,
   PendingTaskItemDetailsContainer,
-  PendingTaskItemDistance,
+  PendingTaskItemDistance, PendingTaskItemPriorityHigh,
   PendingTaskItemTimeContainer,
   PendingTaskItemTimeIcon,
   PendingTaskItemTimeText,
-  PendingTaskItemTitle, PendingTasksActionContainer,
+  PendingTaskItemTitle,
+  PendingTasksActionContainer,
   PendingTasksContainer,
   PendingTasksDate,
   PendingTasksItemButtonContainer,
@@ -227,6 +228,8 @@ export function Home() {
                         return (
                           <PendingTaskItem
                             key={childListKey}>
+                            <PendingTaskItemPriorityHigh />
+
                             <PendingTaskItemDetailsContainer>
                               <PendingTaskItemTitle
                                 onClick={() => onHandlerTaskItem(task.id)}>
