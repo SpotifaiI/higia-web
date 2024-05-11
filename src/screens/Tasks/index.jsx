@@ -3,11 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CheckCircle, Clock, PlusCircle, Zap } from 'react-feather';
 
 import { colors } from '../../global/theme.js';
-import {
-  ACTIVE_STATUS, FINISHED_STATUS,
-  PENDING_STATUS,
-  TaskListItem,
-} from '../../models/TaskListItem.js';
+import { TaskListItem } from '../../models/TaskListItem.js';
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
 import { FormFieldInput } from '../../components/FormFieldInput/index.jsx';
 import { TaskList } from '../../components/TaskList/index.jsx';
@@ -31,9 +27,9 @@ export function Tasks() {
   const navigation = useNavigate();
 
   const [tasks, setTasks] = useState({
-    [PENDING_STATUS]: [],
-    [ACTIVE_STATUS]: [],
-    [FINISHED_STATUS]: []
+    [TaskListItem.PENDING_STATUS_TX]: [],
+    [TaskListItem.ACTIVE_STATUS_TX]: [],
+    [TaskListItem.FINISHED_STATUS_TX]: []
   });
 
   useEffect(() => {
@@ -42,9 +38,9 @@ export function Tasks() {
 
   function loadTasks() {
     const elementsTasksList = {
-      [PENDING_STATUS]: [],
-      [ACTIVE_STATUS]: [],
-      [FINISHED_STATUS]: []
+      [TaskListItem.PENDING_STATUS_TX]: [],
+      [TaskListItem.ACTIVE_STATUS_TX]: [],
+      [TaskListItem.FINISHED_STATUS_TX]: []
     };
     const tasksList = sortTasks(fetchTasks());
     const tasksLength = getTasksLength(tasksList);
@@ -52,26 +48,26 @@ export function Tasks() {
     let index;
 
     for (index = 0; index < tasksLength; index++) {
-      if (tasksList[PENDING_STATUS][index]) {
-        elementsTasksList[PENDING_STATUS]
-          .push(tasksList[PENDING_STATUS][index]);
+      if (tasksList[TaskListItem.PENDING_STATUS_TX][index]) {
+        elementsTasksList[TaskListItem.PENDING_STATUS_TX]
+          .push(tasksList[TaskListItem.PENDING_STATUS_TX][index]);
       } else {
-        elementsTasksList[PENDING_STATUS]
+        elementsTasksList[TaskListItem.PENDING_STATUS_TX]
           .push({});
       }
-      if (tasksList[ACTIVE_STATUS][index]) {
-        elementsTasksList[ACTIVE_STATUS]
-          .push(tasksList[ACTIVE_STATUS][index]);
+      if (tasksList[TaskListItem.ACTIVE_STATUS_TX][index]) {
+        elementsTasksList[TaskListItem.ACTIVE_STATUS_TX]
+          .push(tasksList[TaskListItem.ACTIVE_STATUS_TX][index]);
       } else {
-        elementsTasksList[ACTIVE_STATUS]
-        .push({});
+        elementsTasksList[TaskListItem.ACTIVE_STATUS_TX]
+          .push({});
       }
-      if (tasksList[FINISHED_STATUS][index]) {
-        elementsTasksList[FINISHED_STATUS]
-          .push(tasksList[FINISHED_STATUS][index]);
+      if (tasksList[TaskListItem.FINISHED_STATUS_TX][index]) {
+        elementsTasksList[TaskListItem.FINISHED_STATUS_TX]
+          .push(tasksList[TaskListItem.FINISHED_STATUS_TX][index]);
       } else {
-        elementsTasksList[FINISHED_STATUS]
-        .push({});
+        elementsTasksList[TaskListItem.FINISHED_STATUS_TX]
+          .push({});
       }
     }
 
@@ -95,7 +91,11 @@ export function Tasks() {
   function getTasksLength(tasks) {
     let greaterTasksAmount = 0;
 
-    [PENDING_STATUS, ACTIVE_STATUS, FINISHED_STATUS].map(status => {
+    [
+      TaskListItem.PENDING_STATUS_TX,
+      TaskListItem.ACTIVE_STATUS_TX,
+      TaskListItem.FINISHED_STATUS_TX,
+    ].map(status => {
       if (tasks[status] && tasks[status].length > greaterTasksAmount) {
         greaterTasksAmount = tasks[status].length;
       }
@@ -244,11 +244,11 @@ export function Tasks() {
 
           <TaskTableBody>
             {
-              tasks[PENDING_STATUS].map((_, index) => (
+              tasks[TaskListItem.PENDING_STATUS_TX].map((_, index) => (
                 <TaskTableRow key={index}>
-                  <TaskTableCell>{tasks[PENDING_STATUS][index]}</TaskTableCell>
-                  <TaskTableCell>{tasks[ACTIVE_STATUS][index]}</TaskTableCell>
-                  <TaskTableCell>{tasks[FINISHED_STATUS][index]}</TaskTableCell>
+                  <TaskTableCell>{tasks[TaskListItem.PENDING_STATUS_TX][index]}</TaskTableCell>
+                  <TaskTableCell>{tasks[TaskListItem.ACTIVE_STATUS_TX][index]}</TaskTableCell>
+                  <TaskTableCell>{tasks[TaskListItem.FINISHED_STATUS_TX][index]}</TaskTableCell>
                 </TaskTableRow>
               ))
             }
