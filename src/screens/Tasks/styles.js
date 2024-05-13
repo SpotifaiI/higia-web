@@ -51,8 +51,16 @@ export const TaskListGroup = styled.main`
 
 export const TaskListTools = components.ActionWrapper;
 
+export const TaskTableContainer = styled.div`
+  width: 100%;
+  overflow: auto;
+  padding-bottom: 1.6rem;
+  margin: 2.4rem 0;
+`;
 
-export const TaskTable = styled.table``;
+export const TaskTable = styled.table`
+  width: 100%;
+`;
 
 export const TaskTableHeader = styled.thead``;
 
@@ -60,4 +68,22 @@ export const TaskTableBody = styled.tbody``;
 
 export const TaskTableRow = styled.tr``;
 
-export const TaskTableCell = styled.td``;
+export const TaskTableHead = styled.th`
+  min-width: 24rem;
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2rem;
+`;
+
+export const TaskTableCell = styled.td`
+  min-width: 24rem;
+  width: 100%;
+`;
+
+export const TaskTableItem = styled.span`
+  width: 100%;
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+`;
