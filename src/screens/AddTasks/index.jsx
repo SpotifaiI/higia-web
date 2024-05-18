@@ -1,11 +1,9 @@
-import { Save } from 'react-feather';
+import { Save } from "react-feather";
 
-import { AppWrapper } from '../../components/AppWrapper/index.jsx';
-import { FormFieldInput } from '../../components/FormFieldInput/index.jsx';
-import { TaskMap } from '../../components/TaskMap/index.jsx';
-import {
-  GradientActionButton
-} from '../../components/GradientActionButton/index.jsx';
+import { AppWrapper } from "../../components/AppWrapper/index.jsx";
+import { FormFieldInput } from "../../components/FormFieldInput/index.jsx";
+import { TaskMap } from "../../components/TaskMap/index.jsx";
+import { GradientActionButton } from "../../components/GradientActionButton/index.jsx";
 import {
   MapBox,
   TaskForm,
@@ -15,11 +13,11 @@ import {
   TaskFormRowGeneral,
   TaskFormRowLocation,
   TaskFormRowRef,
-} from './styles.js';
+} from "./styles.js";
 
 export function AddTasks() {
   return (
-    <AppWrapper backTo="/tasks"  title="Criar Tarefa">
+    <AppWrapper backTo="/tasks" title="Criar Tarefa">
       <TaskFormContainer>
         <TaskForm>
           <TaskFormRowGeneral>
@@ -46,7 +44,7 @@ export function AddTasks() {
         </TaskForm>
 
         <MapBox>
-          <TaskMap />
+          <TaskMap tasks={[]} />
         </MapBox>
 
         <TaskFormFooter>
