@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { CheckCircle, Clock, PlusCircle, Zap } from 'react-feather';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CheckCircle, Clock, PlusCircle, Zap } from "react-feather";
 
-import { colors } from '../../global/theme.js';
-import { TaskListItem } from '../../models/TaskListItem.js';
-import { AppWrapper } from '../../components/AppWrapper/index.jsx';
-import { FormFieldInput } from '../../components/FormFieldInput/index.jsx';
-import { TaskList } from '../../components/TaskList/index.jsx';
-import {
-  GradientActionButton
-} from '../../components/GradientActionButton/index.jsx';
+import { colors } from "../../global/theme.js";
+import { TaskListItem } from "../../models/TaskListItem.js";
+import { AppWrapper } from "../../components/AppWrapper/index.jsx";
+import { FormFieldInput } from "../../components/FormFieldInput/index.jsx";
+import { TaskList } from "../../components/TaskList/index.jsx";
+import { GradientActionButton } from "../../components/GradientActionButton/index.jsx";
 import {
   SearchContainer,
   SearchFieldsGroup,
@@ -18,10 +16,12 @@ import {
   TaskTable,
   TaskTableBody,
   TaskTableCell,
-  TaskTableContainer, TaskTableHead,
-  TaskTableHeader, TaskTableItem,
+  TaskTableContainer,
+  TaskTableHead,
+  TaskTableHeader,
+  TaskTableItem,
   TaskTableRow,
-} from './styles.js';
+} from "./styles.js";
 
 export function Tasks() {
   const navigation = useNavigate();
@@ -29,45 +29,45 @@ export function Tasks() {
   const [tasks, setTasks] = useState({
     [TaskListItem.PENDING_STATUS_TX]: [],
     [TaskListItem.ACTIVE_STATUS_TX]: [],
-    [TaskListItem.FINISHED_STATUS_TX]: []
+    [TaskListItem.FINISHED_STATUS_TX]: [],
   });
 
+  const [isLoading, setIsLoading] = useState(false); // Flag to indicate loading state
+
   useEffect(() => {
-    setTasks(loadTasks());
+    fetchTasks(); // Fetch tasks on component mount
   }, []);
 
-  function loadTasks() {
+  async function fetchTasks() {
+    setIsLoading(true); // Set loading state to true
+
+    try {
+      const fetchedTasks = await {
+        /*future logic here*/
+      };
+      const elementsTasksList = processTasks(fetchedTasks);
+      setTasks(elementsTasksList);
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    } finally {
+      setIsLoading(false); // Set loading state to false regardless of success or error
+    }
+  }
+
+  function processTasks(fetchedTasks) {
     const elementsTasksList = {
       [TaskListItem.PENDING_STATUS_TX]: [],
       [TaskListItem.ACTIVE_STATUS_TX]: [],
-      [TaskListItem.FINISHED_STATUS_TX]: []
+      [TaskListItem.FINISHED_STATUS_TX]: [],
     };
-    const tasksList = sortTasks(fetchTasks());
-    const tasksLength = getTasksLength(tasksList);
 
-    let index;
-
-    for (index = 0; index < tasksLength; index++) {
-      if (tasksList[TaskListItem.PENDING_STATUS_TX][index]) {
-        elementsTasksList[TaskListItem.PENDING_STATUS_TX]
-          .push(tasksList[TaskListItem.PENDING_STATUS_TX][index]);
-      } else {
-        elementsTasksList[TaskListItem.PENDING_STATUS_TX]
-          .push({});
-      }
-      if (tasksList[TaskListItem.ACTIVE_STATUS_TX][index]) {
-        elementsTasksList[TaskListItem.ACTIVE_STATUS_TX]
-          .push(tasksList[TaskListItem.ACTIVE_STATUS_TX][index]);
-      } else {
-        elementsTasksList[TaskListItem.ACTIVE_STATUS_TX]
-          .push({});
-      }
-      if (tasksList[TaskListItem.FINISHED_STATUS_TX][index]) {
-        elementsTasksList[TaskListItem.FINISHED_STATUS_TX]
-          .push(tasksList[TaskListItem.FINISHED_STATUS_TX][index]);
-      } else {
-        elementsTasksList[TaskListItem.FINISHED_STATUS_TX]
-          .push({});
+    for (const task of fetchedTasks) {
+      if (task.status === TaskListItem.PENDING_STATUS) {
+        elementsTasksList[TaskListItem.PENDING_STATUS_TX].push(task);
+      } else if (task.status === TaskListItem.ACTIVE_STATUS) {
+        elementsTasksList[TaskListItem.ACTIVE_STATUS_TX].push(task);
+      } else if (task.status === TaskListItem.FINISHED_STATUS) {
+        elementsTasksList[TaskListItem.FINISHED_STATUS_TX].push(task);
       }
     }
 
@@ -95,7 +95,7 @@ export function Tasks() {
       TaskListItem.PENDING_STATUS_TX,
       TaskListItem.ACTIVE_STATUS_TX,
       TaskListItem.FINISHED_STATUS_TX,
-    ].map(status => {
+    ].map((status) => {
       if (tasks[status] && tasks[status].length > greaterTasksAmount) {
         greaterTasksAmount = tasks[status].length;
       }
@@ -104,94 +104,8 @@ export function Tasks() {
     return greaterTasksAmount;
   }
 
-  function fetchTasks() {
-    return [
-      new TaskListItem(
-        1,
-        'Avenida JK',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        2,
-        'Clareira Amoenta',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        3,
-        'Alameda Ibituba',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        4,
-        'Aluguel Ausente',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        5,
-        'Compra Venda',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        6,
-        'Aluguel Anônimo',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        7,
-        'Avenida Da Saudade',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        8,
-        'Avenida XV',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      ),
-      new TaskListItem(
-        9,
-        'Rua da Alegria',
-        [
-          'João', 'Pedro'
-        ],
-        1,
-        2
-      )
-    ];
-  }
-
   function onAddTaskHandler() {
-     navigation('/tasks/register');
+    navigation("/tasks/register");
   }
 
   return (
@@ -206,9 +120,7 @@ export function Tasks() {
           <FormFieldInput label="Data Fim" />
         </SearchFieldsGroup>
 
-        <GradientActionButton>
-          Buscar
-        </GradientActionButton>
+        <GradientActionButton>Buscar</GradientActionButton>
       </SearchContainer>
 
       <TaskListTools>
@@ -243,15 +155,30 @@ export function Tasks() {
           </TaskTableHeader>
 
           <TaskTableBody>
-            {
-              tasks[TaskListItem.PENDING_STATUS_TX].map((_, index) => (
-                <TaskTableRow key={index}>
-                  <TaskTableCell>{tasks[TaskListItem.PENDING_STATUS_TX][index]}</TaskTableCell>
-                  <TaskTableCell>{tasks[TaskListItem.ACTIVE_STATUS_TX][index]}</TaskTableCell>
-                  <TaskTableCell>{tasks[TaskListItem.FINISHED_STATUS_TX][index]}</TaskTableCell>
-                </TaskTableRow>
-              ))
-            }
+            {isLoading ? (
+              <p>Carregando tarefas...</p>
+            ) : (
+              <>
+                {tasks[TaskListItem.PENDING_STATUS_TX]?.map((task, index) => (
+                  <TaskTableRow key={index}>
+                    <TaskTableCell>{task.title}</TaskTableCell>
+                    {/* ... other cells for task details based on your TaskListItem model */}
+                  </TaskTableRow>
+                ))}
+                {tasks[TaskListItem.ACTIVE_STATUS_TX]?.map((task, index) => (
+                  <TaskTableRow key={index}>
+                    <TaskTableCell>{task.title}</TaskTableCell>
+                    {/* ... other cells for task details based on your TaskListItem model */}
+                  </TaskTableRow>
+                ))}
+                {tasks[TaskListItem.FINISHED_STATUS_TX]?.map((task, index) => (
+                  <TaskTableRow key={index}>
+                    <TaskTableCell>{task.title}</TaskTableCell>
+                    {/* ... other cells for task details based on your TaskListItem model */}
+                  </TaskTableRow>
+                ))}
+              </>
+            )}
           </TaskTableBody>
         </TaskTable>
       </TaskTableContainer>
@@ -260,37 +187,19 @@ export function Tasks() {
         <TaskList
           title="Pendentes"
           icon={Clock}
-          items={[
-            new TaskListItem(
-                'Avenida JK',
-                'Roberto de Souza',
-                3
-            )
-          ]}
+          items={[new TaskListItem("Avenida JK", "Roberto de Souza", 3)]}
         />
 
         <TaskList
           title="Ativas"
           icon={Zap}
-          items={[
-            new TaskListItem(
-              'Avenida JK',
-              'Roberto de Souza',
-              3
-            )
-          ]}
+          items={[new TaskListItem("Avenida JK", "Roberto de Souza", 3)]}
         />
 
         <TaskList
           title="Concluídas"
           icon={CheckCircle}
-          items={[
-            new TaskListItem(
-              'Avenida JK',
-              'Roberto de Souza',
-              3
-            )
-          ]}
+          items={[new TaskListItem("Avenida JK", "Roberto de Souza", 3)]}
         />
       </TaskListGroup>
     </AppWrapper>
