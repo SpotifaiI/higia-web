@@ -73,6 +73,8 @@ export const PriorityInputContainer = styled.div`
   gap: 1.6rem;
   align-items: center;
   overflow: auto;
+  border-radius: .4rem;
+  scrollbar-width: none;
 `;
 
 export const PriorityInputLabel = styled.span`
@@ -97,23 +99,34 @@ export const PriorityInput = styled.button`
   font-weight: 500;
   cursor: pointer;
   transition: .3s;
-
-  &:hover {
-    opacity: .8;
-  }
 `;
 
 export const PriorityInputLow = styled(PriorityInput)`
   background-color: ${props => props.selected ? colors.p1 : 'transparent'};
   color: ${props => props.selected ? colors.lighter : colors.p1};
+
+  &:hover {
+    background-color: ${colors.p1};
+    color: ${colors.lighter};
+  }
 `;
 
 export const PriorityInputMedium = styled(PriorityInput)`
   background-color: ${props => props.selected ? colors.p2 : 'transparent'};
   color: ${props => props.selected ? colors.darker : colors.p2};
+
+  &:hover {
+    background-color: ${colors.p2};
+    color: ${colors.darker};
+  }
 `;
 
 export const PriorityInputHigh = styled(PriorityInput)`
   background-color: ${props => props.selected ? colors.p3 : 'transparent'};
   color: ${props => props.selected ? colors.lighter : colors.p3};
+
+  &:hover {
+    background-color: ${colors.p3};
+    color: ${colors.lighter};
+  }
 `;
