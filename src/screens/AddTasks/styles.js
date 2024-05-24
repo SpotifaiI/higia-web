@@ -70,8 +70,9 @@ export const MapBox = styled.aside`
 
 export const PriorityInputContainer = styled.div`
   display: flex;
-  gap: .8rem;
+  gap: 1.6rem;
   align-items: center;
+  overflow: auto;
 `;
 
 export const PriorityInputLabel = styled.span`
@@ -82,15 +83,14 @@ export const PriorityInputLabel = styled.span`
 `;
 
 export const PriorityInputGroup = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: .4rem;
-  flex: 1;
 `;
 
 export const PriorityInput = styled.button`
   height: 3.2rem;
   border: 0;
+  padding: 0 1.6rem;
   border-radius: .4rem;
   font-size: 1.2rem;
   line-height: 2.4rem;
