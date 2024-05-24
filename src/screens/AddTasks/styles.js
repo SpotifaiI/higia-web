@@ -70,8 +70,11 @@ export const MapBox = styled.aside`
 
 export const PriorityInputContainer = styled.div`
   display: flex;
-  gap: .8rem;
+  gap: 1.6rem;
   align-items: center;
+  overflow: auto;
+  border-radius: .4rem;
+  scrollbar-width: none;
 `;
 
 export const PriorityInputLabel = styled.span`
@@ -82,38 +85,48 @@ export const PriorityInputLabel = styled.span`
 `;
 
 export const PriorityInputGroup = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: .4rem;
-  flex: 1;
 `;
 
 export const PriorityInput = styled.button`
   height: 3.2rem;
   border: 0;
+  padding: 0 1.6rem;
   border-radius: .4rem;
   font-size: 1.2rem;
   line-height: 2.4rem;
   font-weight: 500;
   cursor: pointer;
   transition: .3s;
-
-  &:hover {
-    opacity: .8;
-  }
 `;
 
 export const PriorityInputLow = styled(PriorityInput)`
   background-color: ${props => props.selected ? colors.p1 : 'transparent'};
   color: ${props => props.selected ? colors.lighter : colors.p1};
+
+  &:hover {
+    background-color: ${colors.p1};
+    color: ${colors.lighter};
+  }
 `;
 
 export const PriorityInputMedium = styled(PriorityInput)`
   background-color: ${props => props.selected ? colors.p2 : 'transparent'};
   color: ${props => props.selected ? colors.darker : colors.p2};
+
+  &:hover {
+    background-color: ${colors.p2};
+    color: ${colors.darker};
+  }
 `;
 
 export const PriorityInputHigh = styled(PriorityInput)`
   background-color: ${props => props.selected ? colors.p3 : 'transparent'};
   color: ${props => props.selected ? colors.lighter : colors.p3};
+
+  &:hover {
+    background-color: ${colors.p3};
+    color: ${colors.lighter};
+  }
 `;
