@@ -42,9 +42,7 @@ export function Tasks() {
     setIsLoading(true); // Set loading state to true
 
     try {
-      const fetchedTasks = await {
-        /*future logic here*/
-      };
+      const fetchedTasks = [];
       const elementsTasksList = processTasks(fetchedTasks);
       setTasks(elementsTasksList);
     } catch (error) {
@@ -182,26 +180,6 @@ export function Tasks() {
           </TaskTableBody>
         </TaskTable>
       </TaskTableContainer>
-
-      <TaskListGroup>
-        <TaskList
-          title="Pendentes"
-          icon={Clock}
-          items={[new TaskListItem("Avenida JK", "Roberto de Souza", 3)]}
-        />
-
-        <TaskList
-          title="Ativas"
-          icon={Zap}
-          items={[new TaskListItem("Avenida JK", "Roberto de Souza", 3)]}
-        />
-
-        <TaskList
-          title="Concluídas"
-          icon={CheckCircle}
-          items={[new TaskListItem("Avenida JK", "Roberto de Souza", 3)]}
-        />
-      </TaskListGroup>
     </AppWrapper>
   );
 }
