@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import { Save } from "react-feather";
 import { AppWrapper } from "../../components/AppWrapper/index.jsx";
 import { FormFieldInput } from "../../components/FormFieldInput/index.jsx";
-import { TaskMap } from "../../components/TaskMap/index.jsx";
 import { GradientActionButton } from "../../components/GradientActionButton/index.jsx";
+import { TaskMap } from "../../components/TaskMap/index.jsx";
 import {
   MapBox,
+  PriorityInputContainer,
+  PriorityInputGroup,
+  PriorityInputHigh,
+  PriorityInputLabel,
+  PriorityInputLow,
+  PriorityInputMedium,
   TaskForm,
   TaskFormContainer,
   TaskFormFooter,
   TaskFormRowAddress,
   TaskFormRowGeneral,
   TaskFormRowLocation,
-  TaskFormRowRef,
+  TaskFormRowRef
 } from "./styles.js";
 import { createTask } from "../../api/tasks/index.jsx";
 

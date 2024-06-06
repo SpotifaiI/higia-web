@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { sizes } from '../../global/sizes.js';
+import { colors } from '../../global/theme.js';
 
 export const TaskFormContainer = styled.div`
   display: flex;
@@ -65,4 +66,67 @@ export const TaskFormFooter = styled.footer`
 export const MapBox = styled.aside`
   width: 100%;
   height: 40vh
+`;
+
+export const PriorityInputContainer = styled.div`
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  overflow: auto;
+  border-radius: .4rem;
+  scrollbar-width: none;
+`;
+
+export const PriorityInputLabel = styled.span`
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 700;
+  color: var(--color-dark);
+`;
+
+export const PriorityInputGroup = styled.div`
+  display: flex;
+  gap: .4rem;
+`;
+
+export const PriorityInput = styled.button`
+  height: 3.2rem;
+  border: 0;
+  padding: 0 1.6rem;
+  border-radius: .4rem;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .3s;
+`;
+
+export const PriorityInputLow = styled(PriorityInput)`
+  background-color: ${props => props.selected ? colors.p1 : 'transparent'};
+  color: ${props => props.selected ? colors.lighter : colors.p1};
+
+  &:hover {
+    background-color: ${colors.p1};
+    color: ${colors.lighter};
+  }
+`;
+
+export const PriorityInputMedium = styled(PriorityInput)`
+  background-color: ${props => props.selected ? colors.p2 : 'transparent'};
+  color: ${props => props.selected ? colors.darker : colors.p2};
+
+  &:hover {
+    background-color: ${colors.p2};
+    color: ${colors.darker};
+  }
+`;
+
+export const PriorityInputHigh = styled(PriorityInput)`
+  background-color: ${props => props.selected ? colors.p3 : 'transparent'};
+  color: ${props => props.selected ? colors.lighter : colors.p3};
+
+  &:hover {
+    background-color: ${colors.p3};
+    color: ${colors.lighter};
+  }
 `;

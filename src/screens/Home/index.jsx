@@ -1,16 +1,18 @@
+import React, { useState, useEffect } from 'react';
 import { Check, Clock, Pause, Play } from 'react-feather';
 import { useNavigate } from 'react-router-dom';
-
 import { AppWrapper } from '../../components/AppWrapper/index.jsx';
 import { TaskMap } from '../../components/TaskMap/index.jsx';
 import { FormFieldInput } from '../../components/FormFieldInput/index.jsx';
+import Timer from '../../components/Timer/index.jsx';
 import {
   DataList,
   MapBox,
   PendingTaskItem,
   PendingTaskItemButton,
   PendingTaskItemDetailsContainer,
-  PendingTaskItemDistance, PendingTaskItemPriorityHigh,
+  PendingTaskItemDistance,
+  PendingTaskItemPriorityHigh,
   PendingTaskItemTimeContainer,
   PendingTaskItemTimeIcon,
   PendingTaskItemTimeText,
@@ -27,7 +29,6 @@ import {
   TaskStatsDescription,
   TaskStatsNumber,
 } from './styles.js';
-import { useEffect, useState } from 'react';
 
 export function Home() {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ export function Home() {
   const [adminPendingTasks, setAdminPendingTasks] = useState([]);
   const [collaboratorPendingTasks, setCollaboratorPendingTasks] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [activeTask, setActiveTask] = useState(null); // Task ID with active timer
 
   useEffect(() => {
     load();
@@ -52,9 +54,6 @@ export function Home() {
     }
   }
 
-  /**
-   * @returns {Promise<void>}
-   */
   async function loadCounting() {
     const { finished, pending } = await getTasksCount();
 
@@ -66,9 +65,6 @@ export function Home() {
     }
   }
 
-  /**
-   * @returns {Promise<void>}
-   */
   async function loadAdminTasks() {
     const { tasks } = await getAdminPendingTasks();
 
@@ -77,9 +73,6 @@ export function Home() {
     }
   }
 
-  /**
-   * @returns {Promise<void>}
-   */
   async function loadCollaboratorTasks() {
     const { tasks } = await getAdminPendingTasks();
 
@@ -88,19 +81,6 @@ export function Home() {
     }
   }
 
-  /**
-   * @returns {Promise<{
-   *   tasks: {
-   *     date: string,
-   *     items: {
-   *       title: string,
-   *       time: string,
-   *       id: number,
-   *       position: number[]
-   *     }[]
-   *   }[]
-   * }>}
-   */
   async function getAdminPendingTasks() {
     return new Promise((resolve) => {
       resolve({
@@ -111,7 +91,7 @@ export function Home() {
               {
                 id: 1,
                 title: 'Avenida JK',
-                time: '00:32',
+                time: 0, // Store time in seconds
                 position: [-26.3007, -48.8413]
               }
             ]
@@ -122,25 +102,25 @@ export function Home() {
               {
                 id: 2,
                 title: 'Avenida JK',
-                time: '00:32',
+                time: 0, // Store time in seconds
                 position: [-26.3045, -48.8489]
               },
               {
                 id: 3,
                 title: 'Avenida JK',
-                time: '00:32',
+                time: 0, // Store time in seconds
                 position: [-26.3026, -48.8461]
               },
               {
                 id: 4,
                 title: 'Avenida JK',
-                time: '00:32',
+                time: 0, // Store time in seconds
                 position: [-26.3045, -48.8123]
               },
               {
                 id: 5,
                 title: 'Avenida JK',
-                time: '00:32',
+                time: 0, // Store time in seconds
                 position: [-26.3012, -48.8498]
               }
             ]
@@ -151,13 +131,13 @@ export function Home() {
               {
                 id: 6,
                 title: 'Avenida JK',
-                time: '00:32',
+                time: 0, // Store time in seconds
                 position: [-26.3045, -48.8489]
               },
               {
                 id: 7,
                 title: 'Avenida JK',
-                time: '00:32',
+                time: 0, // Store time in seconds
                 position: [-26.3045, -48.8754]
               }
             ]
@@ -167,12 +147,6 @@ export function Home() {
     });
   }
 
-  /**
-   * @returns {Promise<{
-   *   pending: number,
-   *   finished: number
-   * }>}
-   */
   async function getTasksCount() {
     return new Promise((resolve) => {
       resolve({
@@ -182,11 +156,35 @@ export function Home() {
     });
   }
 
-  /**
-   * @param {number} taskId
-   */
   function onHandlerTaskItem(taskId) {
     navigate(`tasks/register/${taskId}`);
+  }
+
+  function handlePlayPause(taskId) {
+    if (activeTask === taskId) {
+      setActiveTask(null); // Pause the active task
+    } else {
+      setActiveTask(taskId); // Start a new task
+    }
+  }
+
+  function updateTaskTime(taskId, newTime) {
+    setAdminPendingTasks(prevTasks =>
+      prevTasks.map(taskGroup => ({
+        ...taskGroup,
+        items: taskGroup.items.map(task =>
+          task.id === taskId ? { ...task, time: newTime } : task
+        )
+      }))
+    );
+    setCollaboratorPendingTasks(prevTasks =>
+      prevTasks.map(taskGroup => ({
+        ...taskGroup,
+        items: taskGroup.items.map(task =>
+          task.id === taskId ? { ...task, time: newTime } : task
+        )
+      }))
+    );
   }
 
   return (
@@ -224,6 +222,7 @@ export function Home() {
 
                       {datails.items.map((task, childKey) => {
                         const childListKey = `${parentListKey}_${childKey}`;
+                        const isTaskActive = activeTask === task.id;
 
                         return (
                           <PendingTaskItem
@@ -244,20 +243,19 @@ export function Home() {
                             <PendingTasksActionContainer>
                               <PendingTaskItemTimeContainer>
                                 <PendingTaskItemTimeIcon>
-                                  <Clock size={16}/>
+                                  <Clock size={16} />
                                 </PendingTaskItemTimeIcon>
                                 <PendingTaskItemTimeText>
-                                  {task.time}
+                                  <Timer
+                                    isActive={isTaskActive}
+                                    onTimeUpdate={(newTime) => updateTaskTime(task.id, newTime)}
+                                  />
                                 </PendingTaskItemTimeText>
                               </PendingTaskItemTimeContainer>
 
                               <PendingTasksItemButtonContainer>
-                                <PendingTaskItemButton>
-                                  <Play />
-                                </PendingTaskItemButton>
-
-                                <PendingTaskItemButton>
-                                  <Pause />
+                                <PendingTaskItemButton onClick={() => handlePlayPause(task.id)}>
+                                  {isTaskActive ? <Pause /> : <Play />}
                                 </PendingTaskItemButton>
 
                                 <PendingTaskItemButton>
