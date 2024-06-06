@@ -32,10 +32,10 @@ export function Tasks() {
     [TaskListItem.FINISHED_STATUS_TX]: [],
   });
 
-  const [isLoading, setIsLoading] = useState(false); // Flag to indicate loading state
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    fetchTasks(); // Fetch tasks on component mount
+    fetchTasks();
   }, []);
 
   async function fetchTasks() {
@@ -50,7 +50,7 @@ export function Tasks() {
     } catch (error) {
       console.error("Error fetching tasks:", error);
     } finally {
-      setIsLoading(false); // Set loading state to false regardless of success or error
+      setIsLoading(false);
     }
   }
 
@@ -162,19 +162,16 @@ export function Tasks() {
                 {tasks[TaskListItem.PENDING_STATUS_TX]?.map((task, index) => (
                   <TaskTableRow key={index}>
                     <TaskTableCell>{task.title}</TaskTableCell>
-                    {/* ... other cells for task details based on your TaskListItem model */}
                   </TaskTableRow>
                 ))}
                 {tasks[TaskListItem.ACTIVE_STATUS_TX]?.map((task, index) => (
                   <TaskTableRow key={index}>
                     <TaskTableCell>{task.title}</TaskTableCell>
-                    {/* ... other cells for task details based on your TaskListItem model */}
                   </TaskTableRow>
                 ))}
                 {tasks[TaskListItem.FINISHED_STATUS_TX]?.map((task, index) => (
                   <TaskTableRow key={index}>
                     <TaskTableCell>{task.title}</TaskTableCell>
-                    {/* ... other cells for task details based on your TaskListItem model */}
                   </TaskTableRow>
                 ))}
               </>

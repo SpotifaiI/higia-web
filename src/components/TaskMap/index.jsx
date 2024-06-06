@@ -1,13 +1,20 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { Link } from 'react-router-dom';
-import { Icon as LeafletIcon } from 'leaflet';
+import React from "react";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  useMapEvents,
+} from "react-leaflet";
+import { Link } from "react-router-dom";
+import { Icon as LeafletIcon } from "leaflet";
 
-import { TaskMapContainer } from './styles.js';
+import { TaskMapContainer } from "./styles.js";
 
-import 'leaflet/dist/leaflet.css';
-import pendingIcon from '/assets/map/pending.svg';
-import activeIcon from '/assets/map/active.svg';
-import finishedIcon from '/assets/map/finished.svg';
+import "leaflet/dist/leaflet.css";
+import pendingIcon from "/assets/map/pending.svg";
+import activeIcon from "/assets/map/active.svg";
+import finishedIcon from "/assets/map/finished.svg";
 
 /**
  * @param {{
@@ -20,15 +27,16 @@ import finishedIcon from '/assets/map/finished.svg';
  *       position: number[]
  *     }[]
  *   }[]
+ *   onMapClick: (lat: number, lng: number) => void
  * }} props
  * @returns {JSX.Element}
  * @constructor
  */
 export function TaskMap(props) {
-  const { tasks } = props;
+  const { tasks, onMapClick } = props;
 
-  const pendingMapIcon = buildMapIcon(pendingIcon)
-  const activeMapIcon = buildMapIcon(activeIcon)
+  const pendingMapIcon = buildMapIcon(pendingIcon);
+  const activeMapIcon = buildMapIcon(activeIcon);
   const finishedMapIcon = buildMapIcon(finishedIcon);
 
   /**
@@ -44,7 +52,7 @@ export function TaskMap(props) {
       iconRetinaUrl: mapIcon,
       iconSize: size.iconSize,
       iconAnchor: size.iconAnchor,
-      popupAnchor : size.popupAnchor
+      popupAnchor: size.popupAnchor,
     });
   }
 
@@ -56,8 +64,18 @@ export function TaskMap(props) {
     return {
       iconSize: [size, size],
       iconAnchor: [size / 2, size],
-      popupAnchor: [0, (-1) * size]
+      popupAnchor: [0, -1 * size],
     };
+  }
+
+  function LocationMarker() {
+    useMapEvents({
+      click(e) {
+        const { lat, lng } = e.latlng;
+        onMapClick(lat, lng);
+      },
+    });
+    return null;
   }
 
   return (
@@ -68,37 +86,37 @@ export function TaskMap(props) {
         scrollWheelZoom={true}
         zoomControl={false}
         style={{
-          width: '100%',
-          height: '100%',
-          position: 'relative'
-        }}>
+          width: "100%",
+          height: "100%",
+          position: "relative",
+        }}
+      >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           noWrap={true}
         />
 
+        <LocationMarker />
+
         {tasks.map((taskToShow, taskIndex) => {
           const markerKey = `task_map_marker_${taskIndex}`;
 
-          return (
-            taskToShow.items.map((item, itemIndex) => {
-              const itemKey = `${markerKey}_${itemIndex}`;
+          return taskToShow.items.map((item, itemIndex) => {
+            const itemKey = `${markerKey}_${itemIndex}`;
 
-              return (
-                <Marker
-                  icon={pendingMapIcon}
-                  position={item.position}
-                  key={itemKey}>
-                  <Popup>
-                    <Link to={`tasks/register/${item.id}`}>
-                      {item.title}
-                    </Link>
-                  </Popup>
-                </Marker>
-              );
-            })
-          );
+            return (
+              <Marker
+                icon={pendingMapIcon}
+                position={item.position}
+                key={itemKey}
+              >
+                <Popup>
+                  <Link to={`tasks/register/${item.id}`}>{item.title}</Link>
+                </Popup>
+              </Marker>
+            );
+          });
         })}
       </MapContainer>
     </TaskMapContainer>
